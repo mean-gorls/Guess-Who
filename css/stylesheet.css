@@ -1,0 +1,47 @@
+/* * {
+  outline: dashed 1px orange;
+} */
+
+header, body, footer {
+  width: 1200px;
+}
+
+#topbar li {
+  display: block;
+  float: left;
+}
+
+#topbar li:nth-child(2) {
+  margin-left: 650px;
+}
+
+#topbar :not(:first-child) {
+  margin-top: 10px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+#topbar {
+  height: 75px;
+  width: 1200px;
+  background-color: lightgray;
+  position: fixed;
+}
+
+main h1 {
+  font-size: 40px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+main:not(h1) {
+  text-align: center;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 1200px;
+  height: 60px;
+  background: #6cf;
+}
