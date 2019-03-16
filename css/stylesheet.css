@@ -3,7 +3,8 @@
 } */
 
 header, body, footer {
-  width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 #topbar li {
@@ -12,7 +13,7 @@ header, body, footer {
 }
 
 #topbar li:nth-child(2) {
-  margin-left: 650px;
+  margin-left: 55%;
 }
 
 #topbar :not(:first-child) {
@@ -23,7 +24,7 @@ header, body, footer {
 
 #topbar {
   height: 75px;
-  width: 1200px;
+  width: 100%;
   background-color: lightgray;
   position: fixed;
 }
@@ -39,9 +40,15 @@ main:not(h1) {
 }
 
 footer {
-  position: absolute;
   bottom: 0;
-  width: 1200px;
+  width: 100%;
   height: 60px;
-  background: #6cf;
+  background: rgb(156, 156, 157);
+  margin-top: 60px;
+}
+
+button {
+  padding: 20px 60px;
+  margin-top: 80px;
+  width: 800px;
 }
