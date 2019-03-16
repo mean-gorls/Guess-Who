@@ -2,31 +2,9 @@
   outline: dashed 1px orange;
 } */
 
-header, body, footer {
+body {
   width: 100%;
   margin: 0 auto;
-}
-
-#topbar li {
-  display: block;
-  float: left;
-}
-
-#topbar li:nth-child(2) {
-  margin-left: 55%;
-}
-
-#topbar :not(:first-child) {
-  margin-top: 10px;
-  padding: 20px;
-  font-size: 20px;
-}
-
-#topbar {
-  height: 75px;
-  width: 100%;
-  background-color: lightgray;
-  position: fixed;
 }
 
 main h1 {
@@ -37,14 +15,6 @@ main h1 {
 
 main:not(h1) {
   text-align: center;
-}
-
-footer {
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  background: rgb(156, 156, 157);
-  margin-top: 60px;
 }
 
 button {
