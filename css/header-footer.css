@@ -1,7 +1,12 @@
-header, footer {
+/* body {
+  width: 100%;
+  margin: 0 auto;
+} */
+
+/* header, footer {
     width: 100%;
     margin: 0 auto;
-}
+} */
 
 #topbar li {
   display: block;
@@ -26,11 +31,31 @@ header, footer {
   /* position: fixed; */
 }
 
-
-footer {
-  position: absolute;
-  bottom: 0;
+/* footer {  
+  bottom: 0px;
   width: 100%;
   height: 60px;
   background:rgb(156, 156, 157);
+} */
+
+/* * {
+  margin: 0;
+} */
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 142px; 
+}
+.site-footer {
+  background: orange;
 }
