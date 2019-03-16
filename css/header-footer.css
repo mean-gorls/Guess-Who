@@ -26,10 +26,11 @@ header, footer {
   /* position: fixed; */
 }
 
+
 footer {
+  position: absolute;
   bottom: 0;
   width: 100%;
   height: 60px;
-  background: rgb(156, 156, 157);
-  margin-top: 60px;
+  background:rgb(156, 156, 157);
 }
