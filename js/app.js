@@ -38,8 +38,9 @@ for (var i = 0; i < namesArr.length; i++) {
 	allPeople.push(holder);
 
 }
-console.log(allPeople);
+// console.log(allPeople);
 
+var 
 
 $('.profile-photo').click(function (event) {
 
@@ -47,7 +48,7 @@ $('.profile-photo').click(function (event) {
 
 
 
-//OKay so the order that we will run the for loop will be as such, we will append the photos and link their scr ffrom the properties, then we will create a class tag with jquery at index [i] 
+//OKay so the order that we will run the for loop will be as such, we will append the photos and link their scr from the properties, then we will create a class tag with jquery at index [i] 
 // we can use that class tag to refer to the img and attach the info somehow. 
 //repeat. 
 
