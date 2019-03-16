@@ -22,7 +22,7 @@ function Person(name, hair, glasses, shirtColor, facialHair, department, pronoun
 	this.department = department;
 	this.pronoun = pronoun;
 	this.jobTitle = jobTitle;
-	this.filepath = `img/${name}.jpg`;
+  this.filepath = `img/${name}.jpg`;
 }
 
 for (var i = 0; i < namesArr.length; i++) {
@@ -38,9 +38,34 @@ for (var i = 0; i < namesArr.length; i++) {
 	allPeople.push(holder);
 
 }
-// console.log(allPeople);
 
-var 
+//function to populate displayed People array
+var displayPeople = [];
+
+function choosePeople() {
+ while (displayPeople.length < 25) {
+   var randomNumber = Math.floor(Math.random() * displayPeople.length);
+   if (!displayPeople.includes(allPeople[randomNumber]));
+   displayPeople.push(allPeople[randomNumber]);
+   console.log(randomNumber);
+ }
+}
+
+choosePeople();
+console.log(displayPeople);
+var gameTable = document.getElementById('game');
+var gameTr = document.createElement('tr');
+gameTr.textContent = ('');
+gameTr.appendChild(gameTable);
+
+for (var i = 0; i < 4; i++){
+  var gameTd = document.createElement('td');
+  var gameImg = document.createElement('img');
+  gameImg.src = allPeople[i].filepath;
+  gameTd.appendChild(gameImg);
+
+}
+
 
 $('.profile-photo').click(function (event) {
 
