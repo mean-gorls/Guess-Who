@@ -1,4 +1,4 @@
-body {
+/* body {
   width: 100%;
   margin: 0 auto;
 }
@@ -6,7 +6,7 @@ body {
 header, footer {
     width: 100%;
     margin: 0 auto;
-}
+} */
 
 #topbar li {
   display: block;
@@ -27,7 +27,7 @@ header, footer {
   top: 0px;
   height: 75px;
   width: 100%;
-  background-color: lightgray;
+  background-color: rgba(0, 0, 0, 0.5);
   /* position: fixed; */
 }
 
@@ -77,4 +77,5 @@ html, body {
   width: 100%;
   background-color: lightgray;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }

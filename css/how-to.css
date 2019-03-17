@@ -1,3 +1,7 @@
 /* * {
   outline: dashed 1px orange;
 } */
+
+body {
+  background-image: linear-gradient(to right, lightblue , orange);
+}
