@@ -6,6 +6,7 @@ var allPeople = [];
 var displayPeople = [];
 
 var gameTable = document.getElementById('game');
+var selectedCharacter = document.getElementById('character-details');
 
 var namesArr = ['Adam', 'Brad', 'Brody', 'Bryce', 'Charles', 'David', 'Donnie', 'Gus', 'Haley', 'Harry', 'John', 'Karen', 'Kathy', 'Keith', 'Kelsey', 'Ken', 'Kevin', 'Madeline', 'Malcolm', 'Margot', 'Mark', 'Matt', 'Megan', 'Melissa', 'Michael', 'Molly', 'Nicole', 'Ryan', 'Sam', 'Stacey', 'Tim', 'Todd', 'Tyler'];
 var hairArr = ['black', 'black', 'red', 'brown', 'brown', 'black', 'blonde', 'black', 'brown', 'brown', 'blonde', 'blonde', 'black', 'black', 'brown', 'black', 'blonde', 'red', 'black', 'blonde', 'red', 'brown', 'red', 'black', 'black', 'brown', 'black', 'brown', 'black', 'black', 'brown', 'black', 'brown'];
@@ -36,6 +37,7 @@ function run() {
   populateAllPeople();
   choosePeople();
   renderPeople();
+  displaySelectedCharacter(0);
 
 }
 
@@ -89,16 +91,44 @@ function renderPeople() {
   }
 }
 
-// }
+function displaySelectedCharacter(id) {
+  var displayImg = document.createElement('img');
+  displayImg.src = allPeople[id].filepath;
+  selectedCharacter.appendChild(displayImg);
 
+  var displayLi = document.createElement('ul');
 
-// $('.profile-photo').click(function (event) {
+  var nameItem = document.createElement('li');
+  nameItem.innerText = 'Name: ' + allPeople[id].name;
+  displayLi.appendChild(nameItem);
 
-// });
+  var hairItem = document.createElement('li');
+  hairItem.innerText = allPeople[id].hair;
+  displayLi.appendChild(hairItem);
 
+  var glassesItem = document.createElement('li');
+  glassesItem.innerText = allPeople[id].glasses;
+  displayLi.appendChild(glassesItem);
 
+  var shirtColorItem = document.createElement('li');
+  shirtColorItem.innerText = allPeople[id].shirtColor;
+  displayLi.appendChild(shirtColorItem);
 
-//OKay so the order that we will run the for loop will be as such, we will append the photos and link their scr from the properties, then we will create a class tag with jquery at index [i]
-// we can use that class tag to refer to the img and attach the info somehow.
-//repeat.
+  var facialHairItem = document.createElement('li');
+  facialHairItem.innerText = allPeople[id].facialHair;
+  displayLi.appendChild(facialHairItem);
 
+  var departmentItem = document.createElement('li');
+  departmentItem.innerText = allPeople[id].department;
+  displayLi.appendChild(departmentItem);
+
+  var pronounItem = document.createElement('li');
+  pronounItem.innerText = allPeople[id].pronoun;
+  displayLi.appendChild(pronounItem);
+
+  var jobTitleItem = document.createElement('li');
+  jobTitleItem.innerText = allPeople[id].jobTitle;
+  displayLi.appendChild(jobTitleItem);
+
+  selectedCharacter.appendChild(displayLi);
+}
