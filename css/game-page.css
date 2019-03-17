@@ -1,3 +1,9 @@
 /* * {
   outline: dashed 1px orange;
-} */
+}
+
+table img {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+}

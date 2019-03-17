@@ -1,6 +1,7 @@
-* {
+/* * {
   outline: dashed 1px orange;
-}
+} */
+
 
 section img {
   border-radius: 50%;
@@ -12,15 +13,20 @@ p {
   margin-bottom: 50px;
 }
 
-section {
+/* section {
   display: inline-block;
-}
+} */
 
 #jonny img {
   border-radius: 50%;
   width: 200px;
   height: 200px;
   display: inline-block;
+  text-align: center;
+}
+
+ul {
+  margin: 0 auto;
 }
 
 /* ul {
