@@ -92,3 +92,7 @@ select{
 .form-style-1 .required{
 	color:red;
 }
+
+form {
+  margin-bottom: 175px;
+}

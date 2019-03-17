@@ -1,12 +1,12 @@
-/* body {
+body {
   width: 100%;
   margin: 0 auto;
-} */
+}
 
-/* header, footer {
+header, footer {
     width: 100%;
     margin: 0 auto;
-} */
+}
 
 #topbar li {
   display: block;
@@ -41,21 +41,32 @@
 /* * {
   margin: 0;
 } */
+
 html, body {
   height: 100%;
 }
 .page-wrap {
   min-height: 100%;
   /* equal to footer height */
-  margin-bottom: -142px; 
+  margin-bottom: -50px; 
 }
 .page-wrap:after {
   content: "";
   display: block;
 }
 .site-footer, .page-wrap:after {
-  height: 142px; 
+  height: 50px; 
 }
 .site-footer {
-  background: orange;
+  background: lightgray;
+}
+
+footer {
+  margin-top: 30px;
+}
+
+footer p {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 12px;
 }
