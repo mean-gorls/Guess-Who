@@ -7,8 +7,9 @@ var displayPeople = [];
 
 var gameTable = document.getElementById('game');
 
-var namesArr = ['Adam', 'Brad', 'Brody', 'Bryce', 'Charles', 'David', 'Donnie', 'Gus', 'Haley', 'Harry', 'John', 'Karen', 'Kathy', 'Keith', 'Kelsey', 'Ken', 'Kevin', 'Madeline', 'Malcom', 'Margot', 'Mark', 'Matt', 'Megan', 'Melissa', 'Micheal', 'Molly', 'Nicole', 'Ryan', 'Sam', 'Stacy', 'Tim', 'Todd', 'Tyler'];
-var hairArr = ['black', 'black', 'red', 'brown', 'brown', 'black', 'blonde', 'black', 'brown', 'brown', 'blonde', 'blonde', 'black', 'black', 'brown', 'black', 'blonde', 'red', 'black', 'blonde', 'red', 'brown', 'red', 'black', 'black', 'brown', 'black', 'brown', 'black', 'black', 'brown', 'black', 'brown']; var glassesArr = [true, false, false, true, false, false, false, false, false, false, false, false, true, true, false, false, true, false, false, true, true, true, false, false, false, false, true, false, false, true, false, true, true];
+var namesArr = ['Adam', 'Brad', 'Brody', 'Bryce', 'Charles', 'David', 'Donnie', 'Gus', 'Haley', 'Harry', 'John', 'Karen', 'Kathy', 'Keith', 'Kelsey', 'Ken', 'Kevin', 'Madeline', 'Malcolm', 'Margot', 'Mark', 'Matt', 'Megan', 'Melissa', 'Michael', 'Molly', 'Nicole', 'Ryan', 'Sam', 'Stacey', 'Tim', 'Todd', 'Tyler'];
+var hairArr = ['black', 'black', 'red', 'brown', 'brown', 'black', 'blonde', 'black', 'brown', 'brown', 'blonde', 'blonde', 'black', 'black', 'brown', 'black', 'blonde', 'red', 'black', 'blonde', 'red', 'brown', 'red', 'black', 'black', 'brown', 'black', 'brown', 'black', 'black', 'brown', 'black', 'brown'];
+var glassesArr = [true, false, false, true, false, false, false, false, false, false, false, false, true, true, false, false, true, false, false, true, true, true, false, false, false, false, true, false, false, true, false, true, true];
 var shirtArr = ['white', 'white', 'black', 'grey', 'blue', 'purple', 'blue', 'blue', 'grey', 'black', 'white', 'grey', 'purple', 'black', 'yellow', 'white', 'white', 'white', 'yellow', 'white', 'grey', 'yellow', 'grey', 'grey', 'purple', 'purple', 'white', 'black', 'grey', 'white', 'blue', 'blue', 'yellow'];
 var facialArr = [true, true, true, true, false, false, false, false, false, false, false, false, true, true, false, false, true, false, false, true, true, true, false, false, false, false, true, false, false, true, false, true, true,];
 var departmentArr = ['marketing', 'it', 'marketing', 'hr', 'hr', 'hr', 'it', 'hr', 'marketing', 'it', 'hr', 'hr', 'marketing', 'it', 'hr', 'marketing', 'hr', 'it', 'marketing', 'hr', 'it', 'marketing', 'hr', 'marketing', 'marketing', 'it', 'it', 'hr', 'it', 'hr', 'marketing', 'marketing', 'it'];
@@ -18,7 +19,7 @@ var jobArr = ['director', ',supervisor', 'director', 'manager', 'manager', 'mana
 run();
 
 //Needs more arguments
-function Person(name, hair, glasses, shirtColor, facialHair, department, pronoun, jobTitle) {
+function Person(name, hair, glasses, shirtColor, facialHair, department, pronoun, jobTitle, id) {
   this.name = name;
   this.hair = hair;
   this.glasses = glasses;
@@ -28,6 +29,7 @@ function Person(name, hair, glasses, shirtColor, facialHair, department, pronoun
   this.pronoun = pronoun;
   this.jobTitle = jobTitle;
   this.filepath = `img/${name}.jpg`;
+  this.id = id;
 }
 
 function run() {
@@ -47,21 +49,30 @@ function populateAllPeople() {
     var department = departmentArr[i];
     var proNoun = pronounArr[i];
     var job = jobArr[i];
-    var holder = new Person(names, hair, glasses, shirt, facial, department, proNoun, job);
+    var id = i;
+    var holder = new Person(names, hair, glasses, shirt, facial, department, proNoun, job, id);
     allPeople.push(holder);
   }
 }
 //function to populate displayed People array
 
+function displayPeopleIncludes(id) {
+  for (var i = 0; i < displayPeople.length; i++) {
+    if (displayPeople[i].id === id) {
+      return true;
+    }
+  }
+  return false;
+}
 
 function choosePeople() {
   while (displayPeople.length < 25) {
-    var randomNumber = Math.floor(Math.random() * displayPeople.length);
-    if (!displayPeople.includes(allPeople[randomNumber]));
-    displayPeople.push(allPeople[randomNumber]);
+    var randomNumber = Math.floor(Math.random() * allPeople.length);
+    if (!displayPeopleIncludes(randomNumber)) {
+      displayPeople.push(allPeople[randomNumber]);
+    }
   }
 }
-
 
 function renderPeople() {
   console.log('Display People: ' , displayPeople);
