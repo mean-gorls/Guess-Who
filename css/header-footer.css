@@ -61,12 +61,20 @@ html, body {
   background: lightgray;
 }
 
-footer {
+.site-footer {
   margin-top: 30px;
 }
 
-footer p {
+.site-footer p {
   text-align: center;
   padding-top: 20px;
   font-size: 12px;
+}
+
+.site-footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: lightgray;
+  text-align: center;
 }
