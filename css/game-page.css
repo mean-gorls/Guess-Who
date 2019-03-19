@@ -1,5 +1,15 @@
+<<<<<<< HEAD
+body {
+  background-image: linear-gradient(to right, lightblue , orange);
+}
+
+table {
+  margin: 0 auto;
+  width: 500px;
+=======
 * {
   outline: dashed 1px orange;
+>>>>>>> 711fa5e7484e6d63a22dfdc79540ee5f1f34a781
 }
 
 table img {
@@ -7,3 +17,9 @@ table img {
   height: 100px;
   text-align: center;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+ }
