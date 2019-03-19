@@ -1,18 +1,20 @@
 'use strict';
 
-var peopleGuessed = 0;
+var peopleGuessed = 2;
 var peopleNamesArray = [];
 var allPeople = [];
 var displayPeople = [];
+var correctPerson = [];
+var currentGuess = [];
 
 var gameTable = document.getElementById('game');
 var selectedCharacter = document.getElementById('character-details');
 
 var namesArr = ['Adam', 'Brad', 'Brody', 'Bryce', 'Charles', 'David', 'Donnie', 'Gus', 'Haley', 'Harry', 'John', 'Karen', 'Kathy', 'Keith', 'Kelsey', 'Ken', 'Kevin', 'Madeline', 'Malcolm', 'Margot', 'Mark', 'Matt', 'Megan', 'Melissa', 'Michael', 'Molly', 'Nicole', 'Ryan', 'Sam', 'Stacey', 'Tim', 'Todd', 'Tyler'];
 var hairArr = ['black', 'black', 'red', 'brown', 'brown', 'black', 'blonde', 'black', 'brown', 'brown', 'blonde', 'blonde', 'black', 'black', 'brown', 'black', 'blonde', 'red', 'black', 'blonde', 'red', 'brown', 'red', 'black', 'black', 'brown', 'black', 'brown', 'black', 'black', 'brown', 'black', 'brown'];
-var glassesArr = [true, false, false, true, false, false, false, false, false, false, false, false, true, true, false, false, true, false, false, true, true, true, false, false, false, false, true, false, false, true, false, true, true];
+var glassesArr = ['yes', 'no', 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'yes', 'no', 'no', 'yes', 'no', 'yes', 'yes'];
 var shirtArr = ['white', 'white', 'black', 'grey', 'blue', 'purple', 'blue', 'blue', 'grey', 'black', 'white', 'grey', 'purple', 'black', 'yellow', 'white', 'white', 'white', 'yellow', 'white', 'grey', 'yellow', 'grey', 'grey', 'purple', 'purple', 'white', 'black', 'grey', 'white', 'blue', 'blue', 'yellow'];
-var facialArr = [true, true, true, true, false, false, false, false, false, false, false, false, true, true, false, false, true, false, false, true, true, true, false, false, false, false, true, false, false, true, false, true, true,];
+var facialArr = ['yes', 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'yes', 'no', 'no', 'yes', 'no', 'yes', 'yes',];
 var departmentArr = ['marketing', 'it', 'marketing', 'hr', 'hr', 'hr', 'it', 'hr', 'marketing', 'it', 'hr', 'hr', 'marketing', 'it', 'hr', 'marketing', 'hr', 'it', 'marketing', 'hr', 'it', 'marketing', 'hr', 'marketing', 'marketing', 'it', 'it', 'hr', 'it', 'hr', 'marketing', 'marketing', 'it'];
 var pronounArr = [2, 2, 3, 3, 2, 2, 2, 3, 3, 2, 1, 2, 1, 3, 1, 1, 2, 2, 1, 3, 1, 1, 3, 1, 3, 2, 1, 1, 3, 2, 2, 3, 3];
 var jobArr = ['director', ',supervisor', 'director', 'manager', 'manager', 'manager', 'supervisor', 'manager', 'director', 'supervisor', 'manager', 'manager', 'director', 'supervisor', 'manager', 'director', 'manager', 'supervisor', 'director', 'manager', 'supervisor', 'director', 'manager', 'director', 'director', 'supervisor', 'supervisor', 'manager', 'supervisor', 'manager', 'director', 'director', 'supervisor'];
@@ -34,10 +36,15 @@ function Person(name, hair, glasses, shirtColor, facialHair, department, pronoun
 }
 
 function run() {
+  //creates all people objects
   populateAllPeople();
+  //selecting 25 people to display
   choosePeople();
+  //appends chosen people to the DOM
   renderPeople();
-  displaySelectedCharacter(0);
+  //picks a person of the displayed people as the answer
+  createHiddenPerson();
+  // displaySelectedCharacter(0);
 
 }
 
@@ -84,51 +91,89 @@ function renderPeople() {
       var gameTd = document.createElement('td');
       var displayImg = document.createElement('img');
       displayImg.src = displayPeople[(i * 5) + j].filepath;
+      displayImg.id = (i * 5) + j;
       gameTd.appendChild(displayImg);
       row.appendChild(gameTd);
     }
     gameTable.appendChild(row);
   }
 }
+function createHiddenPerson(){
+  var randomNumber = Math.floor(Math.random() * displayPeople.length);
+  var chosen1 = displayPeople[randomNumber];
+  correctPerson.push(chosen1);
+  console.log(correctPerson);
+}
 
-function displaySelectedCharacter(id) {
+var guessButton = document.createElement('button');
+function displaySelectedCharacter(event) {
+  // var last = document.getElementById('character-details').lastChild;
+  document.getElementById('character-details').innerHTML = '';
+  var id = event.target.id;
   var displayImg = document.createElement('img');
-  displayImg.src = allPeople[id].filepath;
+  displayImg.src = displayPeople[id].filepath;
   selectedCharacter.appendChild(displayImg);
 
   var displayLi = document.createElement('ul');
 
   var nameItem = document.createElement('li');
-  nameItem.innerText = 'Name: ' + allPeople[id].name;
+  nameItem.innerText = 'Name: ' + displayPeople[id].name;
   displayLi.appendChild(nameItem);
 
   var hairItem = document.createElement('li');
-  hairItem.innerText = allPeople[id].hair;
+  hairItem.innerText = 'Hair Color: ' + displayPeople[id].hair;
   displayLi.appendChild(hairItem);
 
   var glassesItem = document.createElement('li');
-  glassesItem.innerText = allPeople[id].glasses;
+  glassesItem.innerText = 'Glasses: ' + displayPeople[id].glasses;
   displayLi.appendChild(glassesItem);
 
   var shirtColorItem = document.createElement('li');
-  shirtColorItem.innerText = allPeople[id].shirtColor;
+  shirtColorItem.innerText = 'Shirt Color: ' + displayPeople[id].shirtColor;
   displayLi.appendChild(shirtColorItem);
 
   var facialHairItem = document.createElement('li');
-  facialHairItem.innerText = allPeople[id].facialHair;
+  facialHairItem.innerText = 'Facial Hair: ' + displayPeople[id].facialHair;
   displayLi.appendChild(facialHairItem);
 
   var departmentItem = document.createElement('li');
-  departmentItem.innerText = allPeople[id].department;
+  departmentItem.innerText = 'Department: ' + displayPeople[id].department;
   displayLi.appendChild(departmentItem);
 
   var pronounItem = document.createElement('li');
-  pronounItem.innerText = allPeople[id].pronoun;
+  pronounItem.innerText = 'Pronoun: ' + displayPeople[id].pronoun;
   displayLi.appendChild(pronounItem);
 
   var jobTitleItem = document.createElement('li');
-  jobTitleItem.innerText = allPeople[id].jobTitle;
+  jobTitleItem.innerText = 'Job Title: ' + displayPeople[id].jobTitle;
   displayLi.appendChild(jobTitleItem);
 
+  guessButton.innerText = 'Guess ' + displayPeople[id].name;
+  guessButton.id = displayPeople[id].id;
+  displayLi.appendChild(guessButton);
+
   selectedCharacter.appendChild(displayLi);
+  
+}
+
+gameTable.addEventListener('click', displaySelectedCharacter);
+
+function guessPerson(){
+  var id = event.target.id;
+  console.log(id);
+  console.log(correctPerson[0].id);
+  if(id == correctPerson[0].id){
+    alert('YEP!');
+
+  }
+  else{
+    peopleGuessed--;
+    alert('No, try again. You have ' + peopleGuessed + ' guesses left')
+  }
+}
+
+guessButton.addEventListener('click', guessPerson);
+
+if(peopleGuessed <=0){
+  //clear all local storage & send them to landing page 
 }
