@@ -20,33 +20,35 @@ header, footer {
 }
 
 #topbar li:nth-child(2) {
-  margin-left: 55%;
+  margin-left: 70%;
 }
 
 #topbar :not(:first-child) {
   /* margin-top: 10px; */
-  padding: 20px;
+  margin-top: 25px;
+  padding: 10px;
   font-size: 20px;
+  font-family: 'Baloo Bhaina', cursive;
+  color: black;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
 }
 
 #topbar {
   top: 0px;
-  height: 60px;
+  height: 90px;
   width: 100%;
-  background-color: rgba(135, 129, 129, 0.4);
+  background-color: rgba(255, 249, 249, 0.3);
   /* position: fixed; */
 }
-
-/* footer {  
-  bottom: 0px;
-  width: 100%;
-  height: 60px;
-  background:rgb(156, 156, 157);
-} */
-
-/* * {
-  margin: 0;
-} */
 
 html, body {
   height: 100%;
@@ -62,9 +64,6 @@ html, body {
 }
 .site-footer, .page-wrap:after {
   height: 50px; 
-}
-.site-footer {
-  background: lightgray;
 }
 
 .site-footer {
@@ -83,5 +82,5 @@ html, body {
   width: 100%;
   background-color: lightgray;
   text-align: center;
-  background-color: rgba(135, 129, 129, 0.4);
+  background-color: rgba(255, 249, 249, 0.3);
 }
