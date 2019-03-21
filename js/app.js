@@ -170,65 +170,67 @@ function guessPerson(){
   }
   else{
     peopleGuessed--;
-    alert('No, try again. You have ' + peopleGuessed + ' guesses left')
+    alert('No, try again. You have ' + peopleGuessed + ' guesses left');
   }
 }
 
 guessButton.addEventListener('click', guessPerson);
 //event listeners for all questions
-var domShirts = getElementById('shirt-color');
-var domGlasses = getElementById('glasses');
-var domHair = getElementById('hair-color');
-var domPronoun = getElementById('pronoun');
-var domFacial = getElementById('facial');
-var domJobTitle = getElementById('job-title');
-var domDepartment = getElementById('department');
+var domShirts = document.getElementsByClassName('shirt-color');
+var domGlasses = document.getElementById('glasses');
+var domHair = document.getElementById('hair-color');
+var domPronoun = document.getElementById('pronoun');
+var domFacial = document.getElementById('facial');
+var domJobTitle = document.getElementById('job-title');
+var domDepartment = document.getElementById('department');
 
-var domShirtBlack = getElementById('shirt-black');
-var domShirtBlue = getElementById('shirt-blue');
-var domShirtWhite = getElementById('shirt-white');
-var domShirtGrey = getElementById('shirt-grey');
-var domShirtPurple = getElementById('shirt-purple');
-var domShirtYellow = getElementById('shirt-yellow');
+var domShirtBlack = document.getElementById('shirt-black');
+var domShirtBlue = document.getElementById('shirt-blue');
+var domShirtWhite = document.getElementById('shirt-white');
+var domShirtGrey = document.getElementById('shirt-grey');
+var domShirtPurple = document.getElementById('shirt-purple');
+var domShirtYellow = document.getElementById('shirt-yellow');
 
-var domGlassesYes = getElementById('glass-yes');
-var domGlassesNo = getElementById('glass-no');
+var domGlassesYes = document.getElementById('glass-yes');
+var domGlassesNo = document.getElementById('glass-no');
 
-var domHairBlack = getElementById('hair-black');
-var domHairBrown = getElementById('hair-brown');
-var domHairRed = getElementById('hair-red');
-var domHairBlonde = getElementById('hair-blonde');
+var domHairBlack = document.getElementById('hair-black');
+var domHairBrown = document.getElementById('hair-brown');
+var domHairRed = document.getElementById('hair-red');
+var domHairBlonde = document.getElementById('hair-blonde');
 
-var domPronoun1 = getElementById('pro-1');
-var domPronoun2 = getElementById('pro-2');
-var domPronoun3 = getElementById('pro-3');
+var domPronoun1 = document.getElementById('pro-1');
+var domPronoun2 = document.getElementById('pro-2');
+var domPronoun3 = document.getElementById('pro-3');
 
-var domFacialNo = getElementById('facial-no');
-var domFacialYes = getElementById('facial-yes');
+var domFacialNo = document.getElementById('facial-no');
+var domFacialYes = document.getElementById('facial-yes');
 
-var domJobtitleSuper = getElementById('job-super');
-var domJobtitleMan = getElementById('job-man');
-var domJobtitleDir = getElementById('job-dir');
+var domJobtitleSuper = document.getElementById('job-super');
+var domJobtitleMan = document.getElementById('job-man');
+var domJobtitleDir = document.getElementById('job-dir');
 
-var domDepartmentIt = getElementById('dep-it');
-var domDepartmentHr = getElementById('dep-hr');
-var domDepartmentDir = getElementById('dep-dir');
+var domDepartmentIt = document.getElementById('dep-it');
+var domDepartmentHr = document.getElementById('dep-hr');
+var domDepartmentDir = document.getElementById('dep-dir');
 
 domShirts.addEventListener('click', checkShirt);
 
 function checkShirt(){
-  var id = event.target.id;
-  if(id == domShirtBlack){
-    if(correctPerson.shirtColor == 'black'){
-      for( var i = 0; i < displayPeople.length; i++){
-        if(displayPeople[i].shirtColor !== 'black'){
-          displayPeople[i] = silohouette;
-        }
-      }
-    }
-  }
+  alert('hello');
+  // var id = event.target.id;
+  // if(id == domShirtBlack){
+  //   console.log('checkShirt if id: ' , id);
+  //   if(correctPerson.shirtColor === 'black'){
+  //     for( var i = 0; i < displayPeople.length; i++){
+  //       if(displayPeople[i].shirtColor !== 'black'){
+  //         displayPeople[i] = silohouette;
+  //       }
+  //     }
+  //   }
+  // }
 }
 
-if(peopleGuessed <=0){
-  //clear all local storage & send them to landing page 
-}
+// if(peopleGuessed <= 0){
+//   //clear all local storage & send them to landing page 
+// }
