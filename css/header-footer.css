@@ -8,6 +8,12 @@ header, footer {
     margin: 0 auto;
 } */
 
+#logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 #topbar li {
   display: block;
   float: left;
