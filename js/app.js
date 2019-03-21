@@ -18,8 +18,9 @@ var facialArr = ['yes', 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no',
 var departmentArr = ['marketing', 'it', 'marketing', 'hr', 'hr', 'hr', 'it', 'hr', 'marketing', 'it', 'hr', 'hr', 'marketing', 'it', 'hr', 'marketing', 'hr', 'it', 'marketing', 'hr', 'it', 'marketing', 'hr', 'marketing', 'marketing', 'it', 'it', 'hr', 'it', 'hr', 'marketing', 'marketing', 'it'];
 var pronounArr = [2, 2, 3, 3, 2, 2, 2, 3, 3, 2, 1, 2, 1, 3, 1, 1, 2, 2, 1, 3, 1, 1, 3, 1, 3, 2, 1, 1, 3, 2, 2, 3, 3];
 var jobArr = ['director', ',supervisor', 'director', 'manager', 'manager', 'manager', 'supervisor', 'manager', 'director', 'supervisor', 'manager', 'manager', 'director', 'supervisor', 'manager', 'director', 'manager', 'supervisor', 'director', 'manager', 'supervisor', 'director', 'manager', 'director', 'director', 'supervisor', 'supervisor', 'manager', 'supervisor', 'manager', 'director', 'director', 'supervisor'];
-
 run();
+var silohouette = new Person('','','','','','','','','','','');
+silohouette.filepath = `img/silohouette.png`;
 
 //Needs more arguments
 function Person(name, hair, glasses, shirtColor, facialHair, department, pronoun, jobTitle, id) {
@@ -34,6 +35,7 @@ function Person(name, hair, glasses, shirtColor, facialHair, department, pronoun
   this.filepath = `img/${name}.jpg`;
   this.id = id;
 }
+
 
 function run() {
   //creates all people objects
@@ -173,6 +175,59 @@ function guessPerson(){
 }
 
 guessButton.addEventListener('click', guessPerson);
+//event listeners for all questions
+var domShirts = getElementById('shirt-color');
+var domGlasses = getElementById('glasses');
+var domHair = getElementById('hair-color');
+var domPronoun = getElementById('pronoun');
+var domFacial = getElementById('facial');
+var domJobTitle = getElementById('job-title');
+var domDepartment = getElementById('department');
+
+var domShirtBlack = getElementById('shirt-black');
+var domShirtBlue = getElementById('shirt-blue');
+var domShirtWhite = getElementById('shirt-white');
+var domShirtGrey = getElementById('shirt-grey');
+var domShirtPurple = getElementById('shirt-purple');
+var domShirtYellow = getElementById('shirt-yellow');
+
+var domGlassesYes = getElementById('glass-yes');
+var domGlassesNo = getElementById('glass-no');
+
+var domHairBlack = getElementById('hair-black');
+var domHairBrown = getElementById('hair-brown');
+var domHairRed = getElementById('hair-red');
+var domHairBlonde = getElementById('hair-blonde');
+
+var domPronoun1 = getElementById('pro-1');
+var domPronoun2 = getElementById('pro-2');
+var domPronoun3 = getElementById('pro-3');
+
+var domFacialNo = getElementById('facial-no');
+var domFacialYes = getElementById('facial-yes');
+
+var domJobtitleSuper = getElementById('job-super');
+var domJobtitleMan = getElementById('job-man');
+var domJobtitleDir = getElementById('job-dir');
+
+var domDepartmentIt = getElementById('dep-it');
+var domDepartmentHr = getElementById('dep-hr');
+var domDepartmentDir = getElementById('dep-dir');
+
+domShirts.addEventListener('click', checkShirt);
+
+function checkShirt(){
+  var id = event.target.id;
+  if(id == domShirtBlack){
+    if(correctPerson.shirtColor == 'black'){
+      for( var i = 0; i < displayPeople.length; i++){
+        if(displayPeople[i].shirtColor !== 'black'){
+          displayPeople[i] = silohouette;
+        }
+      }
+    }
+  }
+}
 
 if(peopleGuessed <=0){
   //clear all local storage & send them to landing page 
