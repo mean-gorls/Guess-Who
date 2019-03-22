@@ -8,14 +8,36 @@ body {
   left: 0;
 }
 
+#logo {
+  height: 70px;
+  width: 120px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
 #character-details {
   position: absolute;
-  margin-top: 50px;
+  margin-top: 20px;
   background-color: rgba(255, 255, 255, 0.5);
   height: 585px;
   border-top-right-radius: 20%;
   border-bottom-right-radius: 2%;
   margin-left: 80px;
+}
+
+#character-details {
+  animation: MoveUpDown 5s linear infinite;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+@keyframes MoveUpDown {
+  0%, 100% {
+    bottom: 100px;
+  }
+  50% {
+    bottom: 120px;
+  }
 }
 
 #character-details img {
@@ -26,7 +48,7 @@ body {
 }
 
 #character-details li {
-  padding: 10px;
+  padding: 5px;
   font-family: arial;
   margin-left: 40px;
 }
@@ -41,7 +63,7 @@ table img {
 }
 
 table:first-of-type {
-  margin-top: 30px;
+  margin-top: 25px;
 }
 
 table img {
@@ -60,19 +82,20 @@ table {
 }
 
 table img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   text-align: center;
 }
 
 nav {
   text-align: center;
-  margin-top: -75px;
+  margin-top: -70px;
 }
 
 nav li {
   margin-right: 10px;
 }
+
 
 header h1:before,
 .nav-button:before,
@@ -250,9 +273,30 @@ header h1:before,
 	display: inline-block;
 }
 
-.nav ul {
-	display: block;
+/* this made the sub-menus flat */
+.nav > ul > li > ul > li {
+  display: inline-block;
 }
+
+/* .nav ul {
+	display: block;
+} */
+
+/* #department {
+  right: -50px;
+} */
+
+#department li {
+  right: 0px;
+}
+
+/* #dep-it {
+  margin-right: 500px;
+} */
+
+/* .nav-submenu:last-of-type {
+  right: 50px;
+} */
 
 .nav ul ul {
 	display: none;
@@ -347,7 +391,7 @@ table img {
   border: solid 5px black;
 }
 
-footer {
+.site-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
