@@ -468,37 +468,6 @@ function checkAnswer() {
 }
 
 
-if (id == 'hair-' && correctPerson[0].hair == '') {
-  for (var i = 0; i < displayPeople.length; i++) {
-    if (displayPeople[i].hair !== '') {
-      displayPeople[i] = silhouette;
-    }
-  }
-  renderPeople();
-  alert('Yes, the mystery person has  hair');
-}
-if (id == 'hair-' && correctPerson[0].hair !== '') {
-  for (var i = 0; i < displayPeople.length; i++) {
-    if (displayPeople[i].hair == '') {
-      displayPeople[i] = silhouette;
-    }
-  }
-  renderPeople();
-  alert('No, the mystery person does not have  hair');
-}
-
-
-// var id = event.target.id;
-// if(id == domShirtBlack){
-//   console.log('checkShirt if id: ' , id);
-//   if(correctPerson.shirtColor === 'black'){
-//     for( var i = 0; i < displayPeople.length; i++){
-//       if(displayPeople[i].shirtColor !== 'black'){
-//         displayPeople[i] = silhouette;
-//       }
-//     }
-//   }
-// }
 
 // if(peopleGuessed <= 0){
 //   //clear all local storage & send them to landing page
