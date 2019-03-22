@@ -18,9 +18,9 @@ var facialArr = ['yes', 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no',
 var departmentArr = ['marketing', 'it', 'marketing', 'hr', 'hr', 'hr', 'it', 'hr', 'marketing', 'it', 'hr', 'hr', 'marketing', 'it', 'hr', 'marketing', 'hr', 'it', 'marketing', 'hr', 'it', 'marketing', 'hr', 'marketing', 'marketing', 'it', 'it', 'hr', 'it', 'hr', 'marketing', 'marketing', 'it'];
 var pronounArr = [2, 2, 3, 3, 2, 2, 2, 3, 3, 2, 1, 2, 1, 3, 1, 1, 2, 2, 1, 3, 1, 1, 3, 1, 3, 2, 1, 1, 3, 2, 2, 3, 3];
 var jobArr = ['director', ',supervisor', 'director', 'manager', 'manager', 'manager', 'supervisor', 'manager', 'director', 'supervisor', 'manager', 'manager', 'director', 'supervisor', 'manager', 'director', 'manager', 'supervisor', 'director', 'manager', 'supervisor', 'director', 'manager', 'director', 'director', 'supervisor', 'supervisor', 'manager', 'supervisor', 'manager', 'director', 'director', 'supervisor'];
+var silohouette = new Person('', '', '', '', '', '', '', '', '', '', '');
+silohouette.filepath = 'img/silohouette.png';
 run();
-var silohouette = new Person('','','','','','','','','','','');
-silohouette.filepath = `img/silohouette.png`;
 
 //Needs more arguments
 function Person(name, hair, glasses, shirtColor, facialHair, department, pronoun, jobTitle, id) {
@@ -86,7 +86,7 @@ function choosePeople() {
 }
 
 function renderPeople() {
-  console.log('Display People: ' , displayPeople);
+  console.log('Display People: ', displayPeople);
   for (var i = 0; i < 5; i++) {
     var row = document.createElement('tr');
     for (var j = 0; j < 5; j++) {
@@ -100,7 +100,7 @@ function renderPeople() {
     gameTable.appendChild(row);
   }
 }
-function createHiddenPerson(){
+function createHiddenPerson() {
   var randomNumber = Math.floor(Math.random() * displayPeople.length);
   var chosen1 = displayPeople[randomNumber];
   correctPerson.push(chosen1);
@@ -155,80 +155,100 @@ function displaySelectedCharacter(event) {
   displayLi.appendChild(guessButton);
 
   selectedCharacter.appendChild(displayLi);
-  
+
 }
 
 gameTable.addEventListener('click', displaySelectedCharacter);
 
-function guessPerson(){
+function guessPerson() {
   var id = event.target.id;
   console.log(id);
   console.log(correctPerson[0].id);
-  if(id == correctPerson[0].id){
+  if (id == correctPerson[0].id) {
     alert('YEP!');
 
   }
-  else{
+  else {
     peopleGuessed--;
-    alert('No, try again. You have ' + peopleGuessed + ' guesses left')
+    alert('No, try again. You have ' + peopleGuessed + ' guesses left');
   }
 }
 
 guessButton.addEventListener('click', guessPerson);
 //event listeners for all questions
-var domShirts = getElementById('shirt-color');
-var domGlasses = getElementById('glasses');
-var domHair = getElementById('hair-color');
-var domPronoun = getElementById('pronoun');
-var domFacial = getElementById('facial');
-var domJobTitle = getElementById('job-title');
-var domDepartment = getElementById('department');
+var domShirts = document.getElementsByClassName('shirt-color');
+var domGlasses = document.getElementById('glasses');
+var domHair = document.getElementById('hair-color');
+var domPronoun = document.getElementById('pronoun');
+var domFacial = document.getElementById('facial');
+var domJobTitle = document.getElementById('job-title');
+var domDepartment = document.getElementById('department');
 
-var domShirtBlack = getElementById('shirt-black');
-var domShirtBlue = getElementById('shirt-blue');
-var domShirtWhite = getElementById('shirt-white');
-var domShirtGrey = getElementById('shirt-grey');
-var domShirtPurple = getElementById('shirt-purple');
-var domShirtYellow = getElementById('shirt-yellow');
+var domShirtBlack = document.getElementById('shirt-black');
+var domShirtBlue = document.getElementById('shirt-blue');
+var domShirtWhite = document.getElementById('shirt-white');
+var domShirtGrey = document.getElementById('shirt-grey');
+var domShirtPurple = document.getElementById('shirt-purple');
+var domShirtYellow = document.getElementById('shirt-yellow');
 
-var domGlassesYes = getElementById('glass-yes');
-var domGlassesNo = getElementById('glass-no');
+var domGlassesYes = document.getElementById('glass-yes');
+var domGlassesNo = document.getElementById('glass-no');
 
-var domHairBlack = getElementById('hair-black');
-var domHairBrown = getElementById('hair-brown');
-var domHairRed = getElementById('hair-red');
-var domHairBlonde = getElementById('hair-blonde');
+var domHairBlack = document.getElementById('hair-black');
+var domHairBrown = document.getElementById('hair-brown');
+var domHairRed = document.getElementById('hair-red');
+var domHairBlonde = document.getElementById('hair-blonde');
 
-var domPronoun1 = getElementById('pro-1');
-var domPronoun2 = getElementById('pro-2');
-var domPronoun3 = getElementById('pro-3');
+var domPronoun1 = document.getElementById('pro-1');
+var domPronoun2 = document.getElementById('pro-2');
+var domPronoun3 = document.getElementById('pro-3');
 
-var domFacialNo = getElementById('facial-no');
-var domFacialYes = getElementById('facial-yes');
+var domFacialNo = document.getElementById('facial-no');
+var domFacialYes = document.getElementById('facial-yes');
 
-var domJobtitleSuper = getElementById('job-super');
-var domJobtitleMan = getElementById('job-man');
-var domJobtitleDir = getElementById('job-dir');
+var domJobtitleSuper = document.getElementById('job-super');
+var domJobtitleMan = document.getElementById('job-man');
+var domJobtitleDir = document.getElementById('job-dir');
 
-var domDepartmentIt = getElementById('dep-it');
-var domDepartmentHr = getElementById('dep-hr');
-var domDepartmentDir = getElementById('dep-dir');
+var domDepartmentIt = document.getElementById('dep-it');
+var domDepartmentHr = document.getElementById('dep-hr');
+var domDepartmentDir = document.getElementById('dep-dir');
 
-domShirts.addEventListener('click', checkShirt);
+// domShirts.addEventListener('click', checkShirt);
+$('.shirt-color').click(checkShirt);
 
-function checkShirt(){
-  var id = event.target.id;
-  if(id == domShirtBlack){
-    if(correctPerson.shirtColor == 'black'){
-      for( var i = 0; i < displayPeople.length; i++){
-        if(displayPeople[i].shirtColor !== 'black'){
-          displayPeople[i] = silohouette;
-        }
+function checkShirt() {
+  console.log(event.currentTarget.id);
+  var id = event.currentTarget.id;
+  if (id == 'shirt-white' && correctPerson[0].shirtColor == 'white') {
+    for (var i = 0; i < displayPeople.length; i++) {
+      console.log(id);
+      if (displayPeople[i].shirtColor !== 'white') {
+        displayPeople[i] = silohouette;
       }
     }
   }
+  else {
+    for (var i = 0; i < displayPeople.length; i++) {
+      console.log('else', id);
+      if (displayPeople[i].shirtColor == 'white') {
+        displayPeople[i] = silohouette;
+      }
+    }
+  }
+  // var id = event.target.id;
+  // if(id == domShirtBlack){
+  //   console.log('checkShirt if id: ' , id);
+  //   if(correctPerson.shirtColor === 'black'){
+  //     for( var i = 0; i < displayPeople.length; i++){
+  //       if(displayPeople[i].shirtColor !== 'black'){
+  //         displayPeople[i] = silohouette;
+  //       }
+  //     }
+  //   }
+  // }
 }
 
-if(peopleGuessed <=0){
-  //clear all local storage & send them to landing page 
-}
+// if(peopleGuessed <= 0){
+//   //clear all local storage & send them to landing page 
+// }
