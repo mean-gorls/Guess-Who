@@ -1,10 +1,10 @@
 'use strict';
 
-var peopleGuessed = 2;
+var remainingGuesses = 2;
 var allPeople = [];
 var displayPeople = [];
 var correctPerson = [];
-// var remainingQuestions = 5;
+var remainingQuestions = 5;
 
 var gameTable = document.getElementById('game');
 var selectedCharacter = document.getElementById('character-details');
@@ -47,15 +47,18 @@ function Person(name, hair, glasses, shirtColor, facialHair, department, pronoun
 
 
 function run() {
+  
   //creates all people objects
   populateAllPeople();
   //selecting 25 people to display
   choosePeople();
   //appends chosen people to the DOM
-  renderPeople();
-  //picks a person of the displayed people as the answer
   createHiddenPerson();
   // displaySelectedCharacter(0);
+  grabLocal();
+  //updates chosen people and hidden person with local storage.
+  renderPeople();
+  //picks a person of the displayed people as the answer
 
 }
 
@@ -115,6 +118,31 @@ function createHiddenPerson() {
   var chosen1 = displayPeople[randomNumber];
   correctPerson.push(chosen1);
   console.log(correctPerson);
+}
+
+function grabLocal(){
+  if(localStorage.answer){
+  var grabbedAnswer = localStorage.getItem('answer');
+  var parsedAnswer = JSON.parse(grabbedAnswer);
+  console.log(parsedAnswer);
+  correctPerson =  parsedAnswer;
+  }
+  if(localStorage.remainingPeople){
+    var grabbedPeople = localStorage.getItem('remainingPeople');
+    var parsedPeople = JSON.parse(grabbedPeople);
+    console.log('here?',parsedPeople);
+    displayPeople = parsedPeople;
+  }
+  if(localStorage.numQuestions){
+  var grabbedQuestion = localStorage.getItem('numQuestions');
+  var parsedQuestion = JSON.parse(grabbedQuestion);
+  // remainingQuestions = parsedQuestion;
+  }
+  if(localStorage.guessesString){
+  var grabbedGuesses = localStorage.getItem('guessesString');
+  var parsedGuesses = JSON.parse(grabbedGuesses);
+  remainingGuesses = parsedGuesses;
+  }
 }
 
 var guessButton = document.createElement('button');
@@ -178,8 +206,8 @@ function guessPerson() {
 
   }
   else {
-    peopleGuessed--;
-    alert('No, try again. You have ' + peopleGuessed + ' guesses left');
+    remainingGuesses--;
+    alert('No, try again. You have ' + remainingGuesses + ' guesses left');
   }
 }
 
@@ -237,6 +265,7 @@ function checkAnswer() {
   // checkFacialHair();
   // checkJobTitle();
   // checkDepartment();
+  storeData();
 
   function checkShirt() {
 
@@ -246,6 +275,7 @@ function checkAnswer() {
     greyShirt();
     purpleShirt();
     yellowShirt();
+    
 
     function blackShirt() {
       if (id == 'shirt-black' && correctPerson[0].shirtColor == 'Black') {
@@ -449,6 +479,20 @@ function checkAnswer() {
     }
   }
 
+  function storeData(){
+    var answer = JSON.stringify(correctPerson);
+    localStorage.setItem('answer',answer);
+
+    var remainingPeople = JSON.stringify(displayPeople);
+    localStorage.setItem('remainingPeople',remainingPeople);
+    
+    var numQuestions = JSON.stringify(remainingQuestions);
+    localStorage.setItem('numQuestions',numQuestions);
+    
+    var guessesString =JSON.stringify(remainingGuesses);
+    localStorage.setItem('guessesString',guessesString);
+    }
+
   // function checkPronoun() {
 
   // }
@@ -469,6 +513,6 @@ function checkAnswer() {
 
 
 
-// if(peopleGuessed <= 0){
+// if(remainingGuesses <= 0){
 //   //clear all local storage & send them to landing page
 // }
