@@ -22,11 +22,10 @@ section {
   margin-left: 300px;
 }
 
-* {
+*:not(#logo) {
   box-sizing: border-box;
 }
 
-/* Create three equal columns that floats next to each other */
 .column {
   float: left;
   width: 50%;
@@ -37,7 +36,6 @@ section {
   border: solid 7px rgba(255, 255, 255, 0.5);
 }
 
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
@@ -51,4 +49,70 @@ p {
   font-size: 18px;
   line-height: 30px;
   font-family: 'Roboto', sans-serif;
+}
+
+#logo {
+  height: 70px;
+  width: 120px;
+  padding-left: 10px;
+  padding-top: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@-webkit-keyframes bounce {
+
+	0% {
+		-webkit-transform:translateY(0%);
+	}
+	5% {
+		-webkit-transform:translateY(-10%);
+  }
+  10% {
+		-webkit-transform:translateY(-10%);
+  }
+  12% {
+		-webkit-transform:translateY(-10%);
+	}
+	15% {
+		-webkit-transform:translateY(10%);
+		padding: 4px auto;
+	}
+	 20% {
+		-webkit-transform:translateY(-10%);
+	}
+	25% {
+		-webkit-transform:translateY(10%);
+		padding: 4px auto;
+	}
+	30% {
+		-webkit-transform:translateY(-10%);
+	}
+	35% {
+		-webkit-transform:translateY(10%);
+		padding: 5px auto;
+	}
+	40% {
+		-webkit-transform:translateY(-10%);
+	}
+	45% {
+		-webkit-transform:translateY(5%);
+		padding: 5px auto;
+	}
+	50% {
+		-webkit-transform:translateY(-5%);
+	}
+	55% {
+		-webkit-transform:translateY(3%);
+		padding: 6px auto;
+	}
+	60% {
+		-webkit-transform:translateY(0%);
+	}
+}
+
+.bouncy {
+  -webkit-animation: bounce 4s ease-in-out; 
+  animation-iteration-count: infinite; 
 }

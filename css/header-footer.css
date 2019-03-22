@@ -1,104 +1,11 @@
-@-webkit-keyframes bounce {
-	0% {
-		-webkit-transform:translateY(-10%);
-	}
-	5% {
-		-webkit-transform:translateY(-20%);
-  }
-  10% {
-		-webkit-transform:translateY(-20%);
-  }
-  12% {
-		-webkit-transform:translateY(-10%);
-	}
-	15% {
-		-webkit-transform:translateY(30%);
-		padding: 4px auto;
-	}
-	 20% {
-		-webkit-transform:translateY(-10%);
-	}
-	25% {
-		-webkit-transform:translateY(20%);
-		padding: 4px auto;
-	}
-	30% {
-		-webkit-transform:translateY(-20%);
-	}
-	35% {
-		-webkit-transform:translateY(10%);
-		padding: 5px auto;
-	}
-	40% {
-		-webkit-transform:translateY(-20%);
-	}
-	45% {
-		-webkit-transform:translateY(5%);
-		padding: 5px auto;
-	}
-	50% {
-		-webkit-transform:translateY(-10%);
-	}
-	55% {
-		-webkit-transform:translateY(0%);
-		padding: 6px auto;
-	}
-	60% {
-		-webkit-transform:translateY(-5%);
-	}
-
-	/* 75% {
-		-webkit-transform:translateY(0);
-		padding: 8px auto;
-	}  */
-	/* 80% {
-		-webkit-transform:translateY(10%);
-	}
-	85% {
-		-webkit-transform:translateY(5);
-		padding: 8px auto;
-	}
-	90% {
-		-webkit-transform:translateY(10%);
-	}
-	95% {
-		-webkit-transform:translateY(5);
-		padding: 10px;
-	}
-	100% {
-		-webkit-transform:translateY(10);
-		padding: 10px;
-	} */
-}
-
-/* @keyframes slideInFromLeft {
-    0% {
-        transform: translateX(-200%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-} */
-
-.bouncy {
-  -webkit-animation: bounce 5s ease-in-out; 
-  animation-iteration-count: infinite; 
-}
-
 body {
   width: 100%;
   margin: 0 auto;
 }
 
-header, footer {
+header {
     width: 100%;
     margin: 0 auto;
-}
-
-#logo {
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 #logo {
@@ -106,6 +13,9 @@ header, footer {
   width: 120px;
   padding-left: 10px;
   padding-top: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #topbar li {
@@ -118,7 +28,6 @@ header, footer {
 }
 
 #topbar :not(:first-child) {
-  /* margin-top: 10px; */
   margin-top: 25px;
   padding: 10px;
   font-size: 15px;
@@ -140,41 +49,5 @@ a:visited {
   top: 0px;
   height: 80px;
   width: 100%;
-  background-color: rgba(255, 249, 249, 0.3);
-  /* position: fixed; */
-}
-
-html, body {
-  height: 100%;
-}
-.page-wrap {
-  min-height: 100%;
-  /* equal to footer height */
-  margin-bottom: -50px; 
-}
-.page-wrap:after {
-  content: "";
-  display: block;
-}
-.site-footer, .page-wrap:after {
-  height: 50px; 
-}
-
-.site-footer {
-  margin-top: 30px;
-}
-
-.site-footer p {
-  text-align: center;
-  padding-top: 20px;
-  font-size: 12px;
-}
-
-.site-footer {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: lightgray;
-  text-align: center;
   background-color: rgba(255, 249, 249, 0.3);
 }
