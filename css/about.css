@@ -1,9 +1,18 @@
-/* * {
-  outline: dashed 1px orange;
-} */
-
 body {
-  background-image: linear-gradient(to right, lightblue , orange);
+  background-image: linear-gradient(to right, rgb(102, 161, 181) , rgb(247, 177, 47));
+}
+
+#logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#logo {
+  height: 70px;
+  width: 120px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 

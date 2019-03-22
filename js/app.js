@@ -743,3 +743,8 @@ function checkAnswer() {
   }
 
 }
+
+
+// if(peopleGuessed <= 0){
+//   //clear all local storage & send them to landing page
+// }
