@@ -1,4 +1,4 @@
-/* body {
+body {
   width: 100%;
   margin: 0 auto;
 }
@@ -6,12 +6,19 @@
 header, footer {
     width: 100%;
     margin: 0 auto;
-} */
+}
 
 #logo {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+#logo {
+  height: 70px;
+  width: 120px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 #topbar li {
@@ -27,7 +34,7 @@ header, footer {
   /* margin-top: 10px; */
   margin-top: 25px;
   padding: 10px;
-  font-size: 20px;
+  font-size: 15px;
   font-family: 'Baloo Bhaina', cursive;
   color: black;
 }
@@ -44,7 +51,7 @@ a:visited {
 
 #topbar {
   top: 0px;
-  height: 90px;
+  height: 80px;
   width: 100%;
   background-color: rgba(255, 249, 249, 0.3);
   /* position: fixed; */

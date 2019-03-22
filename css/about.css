@@ -6,6 +6,19 @@ body {
   background-image: linear-gradient(to right, lightblue , orange);
 }
 
+#logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#logo {
+  height: 70px;
+  width: 120px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
 
 section img {
   border-radius: 50%;
