@@ -3,32 +3,20 @@ body {
 }
 
 #logo {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-#logo {
   height: 70px;
   width: 120px;
   padding-left: 10px;
   padding-top: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-
 
 section img {
   border-radius: 50%;
   width: 200px;
   height: 200px;
 }
-
-p {
-  margin-bottom: 50px;
-}
-
-/* section {
-  display: inline-block;
-} */
 
 #jonny img {
   border-radius: 50%;
@@ -38,18 +26,58 @@ p {
   text-align: center;
 }
 
-ul {
-  margin: 0 auto;
+@-webkit-keyframes bounce {
+
+	0% {
+		-webkit-transform:translateY(0%);
+	}
+	5% {
+		-webkit-transform:translateY(-10%);
+  }
+  10% {
+		-webkit-transform:translateY(-10%);
+  }
+  12% {
+		-webkit-transform:translateY(-10%);
+	}
+	15% {
+		-webkit-transform:translateY(10%);
+		padding: 4px auto;
+	}
+	 20% {
+		-webkit-transform:translateY(-10%);
+	}
+	25% {
+		-webkit-transform:translateY(10%);
+		padding: 4px auto;
+	}
+	30% {
+		-webkit-transform:translateY(-10%);
+	}
+	35% {
+		-webkit-transform:translateY(10%);
+		padding: 5px auto;
+	}
+	40% {
+		-webkit-transform:translateY(-10%);
+	}
+	45% {
+		-webkit-transform:translateY(5%);
+		padding: 5px auto;
+	}
+	50% {
+		-webkit-transform:translateY(-5%);
+	}
+	55% {
+		-webkit-transform:translateY(3%);
+		padding: 6px auto;
+	}
+	60% {
+		-webkit-transform:translateY(0%);
+	}
 }
 
-/* ul {
-  margin-bottom: 50px;
-  display: inline-block;
-} */
-
-#jonny li:nth-child(2) {
-  border: solid 10px black;
-  margin-top: -120px;
-  margin-left: 200px;
-  width: 700px;
+.bouncy {
+  -webkit-animation: bounce 5s ease-in-out; 
+  animation-iteration-count: infinite; 
 }
