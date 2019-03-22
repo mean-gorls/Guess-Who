@@ -175,6 +175,7 @@ function guessPerson() {
   console.log(id);
   console.log(correctPerson[0].id);
   if (id == correctPerson[0].id) {
+    peopleGuessed--;
     alert('You won! Starting a new game.');
   }
   else {
