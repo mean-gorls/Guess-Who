@@ -17,7 +17,7 @@ var glassesArr = ['Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'No', 
 
 var shirtArr = ['White', 'White', 'Black', 'Grey', 'Blue', 'Purple', 'Blue', 'Blue', 'Grey', 'Black', 'White', 'Grey', 'Purple', 'Black', 'Yellow', 'White', 'White', 'White', 'Yellow', 'White', 'Grey', 'Yellow', 'Grey', 'Grey', 'Purple', 'Purple', 'White', 'Black', 'Grey', 'White', 'Blue', 'Blue', 'Yellow'];
 
-var facialArr = ['Yes', 'Yes', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'Yes',];
+var facialArr = ['Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No'];
 
 var departmentArr = ['Marketing', 'IT', 'Marketing', 'HR', 'HR', 'HR', 'IT', 'HR', 'Marketing', 'IT', 'HR', 'HR', 'Marketing', 'IT', 'HR', 'Marketing', 'HR', 'IT', 'Marketing', 'HR', 'IT', 'Marketing', 'HR', 'Marketing', 'Marketing', 'IT', 'IT', 'HR', 'IT', 'HR', 'Marketing', 'Marketing', 'IT'];
 
@@ -78,7 +78,7 @@ function populateAllPeople() {
 
 function displayPeopleIncludes(id) {
   for (var i = 0; i < displayPeople.length; i++) {
-    if (displayPeople[i].id === id) {
+    if (displayPeople[i].id == id) {
       return true;
     }
   }
@@ -118,6 +118,7 @@ function createHiddenPerson() {
 }
 
 var guessButton = document.createElement('button');
+
 function displaySelectedCharacter(event) {
   // var last = document.getElementById('character-details').lastChild;
   document.getElementById('character-details').innerHTML = '';
@@ -174,8 +175,8 @@ function guessPerson() {
   console.log(id);
   console.log(correctPerson[0].id);
   if (id == correctPerson[0].id) {
-    alert('YEP!');
-
+    peopleGuessed--;
+    alert('You won! Starting a new game.');
   }
   else {
     peopleGuessed--;
@@ -185,47 +186,10 @@ function guessPerson() {
 
 guessButton.addEventListener('click', guessPerson);
 //event listeners for all questions
-var domShirts = document.getElementsByClassName('shirt-color');
-var domGlasses = document.getElementById('glasses');
-var domHair = document.getElementById('hair-color');
-var domPronoun = document.getElementById('pronoun');
-var domFacial = document.getElementById('facial');
-var domJobTitle = document.getElementById('job-title');
-var domDepartment = document.getElementById('department');
-
-var domShirtBlack = document.getElementById('shirt-black');
-var domShirtBlue = document.getElementById('shirt-blue');
-var domShirtWhite = document.getElementById('shirt-white');
-var domShirtGrey = document.getElementById('shirt-grey');
-var domShirtPurple = document.getElementById('shirt-purple');
-var domShirtYellow = document.getElementById('shirt-yellow');
-
-var domGlassesYes = document.getElementById('glass-yes');
-var domGlassesNo = document.getElementById('glass-no');
-
-var domHairBlack = document.getElementById('hair-black');
-var domHairBrown = document.getElementById('hair-brown');
-var domHairRed = document.getElementById('hair-red');
-var domHairBlonde = document.getElementById('hair-blonde');
-
-var domPronoun1 = document.getElementById('pro-1');
-var domPronoun2 = document.getElementById('pro-2');
-var domPronoun3 = document.getElementById('pro-3');
-
-var domFacialNo = document.getElementById('facial-no');
-var domFacialYes = document.getElementById('facial-yes');
-
-var domJobtitleSuper = document.getElementById('job-super');
-var domJobtitleMan = document.getElementById('job-man');
-var domJobtitleDir = document.getElementById('job-dir');
-
-var domDepartmentIt = document.getElementById('dep-it');
-var domDepartmentHr = document.getElementById('dep-hr');
-var domDepartmentDir = document.getElementById('dep-dir');
-
-// domShirts.addEventListener('click', checkShirt);
 
 $('.allCategories').click(checkAnswer);
+
+// I need to check the glasses logic and facial hair logic, anything with yes and no answers.
 
 function checkAnswer() {
   var id = event.currentTarget.id;
@@ -233,10 +197,10 @@ function checkAnswer() {
   checkShirt();
   checkGlasses();
   checkHairColor();
-  // checkPronoun();
-  // checkFacialHair();
-  // checkJobTitle();
-  // checkDepartment();
+  checkPronoun();
+  checkFacialHair();
+  checkJobTitle();
+  checkDepartment();
 
   function checkShirt() {
 
@@ -248,7 +212,7 @@ function checkAnswer() {
     yellowShirt();
 
     function blackShirt() {
-      if (id == 'shirt-black' && correctPerson[0].shirtColor == 'Black') {
+      if (id == 'shirt-black' && correctPerson[0].shirtColor === 'Black') {
         for (var i = 0; i < displayPeople.length; i++) {
           if (displayPeople[i].shirtColor !== 'Black') {
             displayPeople[i] = silhouette;
@@ -258,9 +222,9 @@ function checkAnswer() {
         alert('Yes, the mystery person is wearing a black shirt!');
       }
       if (id == 'shirt-black' && correctPerson[0].shirtColor !== 'Black') {
-        for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].shirtColor == 'Black') {
-            displayPeople[i] = silhouette;
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].shirtColor === 'Black') {
+            displayPeople[j] = silhouette;
           }
         }
         renderPeople();
@@ -269,7 +233,7 @@ function checkAnswer() {
     }
 
     function blueShirt() {
-      if (id == 'shirt-blue' && correctPerson[0].shirtColor == 'Blue') {
+      if (id == 'shirt-blue' && correctPerson[0].shirtColor === 'Blue') {
         for (var i = 0; i < displayPeople.length; i++) {
           if (displayPeople[i].shirtColor !== 'Blue') {
             displayPeople[i] = silhouette;
@@ -279,9 +243,9 @@ function checkAnswer() {
         alert('Yes, the mystery person is wearing a blue shirt!');
       }
       if (id == 'shirt-blue' && correctPerson[0].shirtColor !== 'Blue') {
-        for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].shirtColor == 'Blue') {
-            displayPeople[i] = silhouette;
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].shirtColor === 'Blue') {
+            displayPeople[j] = silhouette;
           }
         }
         renderPeople();
@@ -290,7 +254,7 @@ function checkAnswer() {
     }
 
     function whiteShirt() {
-      if (id == 'shirt-white' && correctPerson[0].shirtColor == 'White') {
+      if (id == 'shirt-white' && correctPerson[0].shirtColor === 'White') {
         for (var i = 0; i < displayPeople.length; i++) {
           if (displayPeople[i].shirtColor !== 'White') {
             displayPeople[i] = silhouette;
@@ -300,9 +264,9 @@ function checkAnswer() {
         alert('Yes, the mystery person is wearing a white shirt!');
       }
       if (id == 'shirt-white' && correctPerson[0].shirtColor !== 'White') {
-        for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].shirtColor == 'White') {
-            displayPeople[i] = silhouette;
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].shirtColor === 'White') {
+            displayPeople[j] = silhouette;
           }
         }
         renderPeople();
@@ -311,7 +275,7 @@ function checkAnswer() {
     }
 
     function greyShirt() {
-      if (id == 'shirt-grey' && correctPerson[0].shirtColor == 'Grey') {
+      if (id == 'shirt-grey' && correctPerson[0].shirtColor === 'Grey') {
         for (var i = 0; i < displayPeople.length; i++) {
           if (displayPeople[i].shirtColor !== 'Grey') {
             displayPeople[i] = silhouette;
@@ -321,9 +285,9 @@ function checkAnswer() {
         alert('Yes, the mystery person is wearing a grey shirt!');
       }
       if (id == 'shirt-grey' && correctPerson[0].shirtColor !== 'Grey') {
-        for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].shirtColor == 'Grey') {
-            displayPeople[i] = silhouette;
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].shirtColor === 'Grey') {
+            displayPeople[j] = silhouette;
           }
         }
         renderPeople();
@@ -332,7 +296,7 @@ function checkAnswer() {
     }
 
     function purpleShirt() {
-      if (id == 'shirt-purple' && correctPerson[0].shirtColor == 'Purple') {
+      if (id == 'shirt-purple' && correctPerson[0].shirtColor === 'Purple') {
         for (var i = 0; i < displayPeople.length; i++) {
           if (displayPeople[i].shirtColor !== 'Purple') {
             displayPeople[i] = silhouette;
@@ -342,9 +306,9 @@ function checkAnswer() {
         alert('Yes, the mystery person is wearing a purple shirt!');
       }
       if (id == 'shirt-purple' && correctPerson[0].shirtColor !== 'Purple') {
-        for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].shirtColor == 'Purple') {
-            displayPeople[i] = silhouette;
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].shirtColor === 'Purple') {
+            displayPeople[j] = silhouette;
           }
         }
         renderPeople();
@@ -353,7 +317,7 @@ function checkAnswer() {
     }
 
     function yellowShirt() {
-      if (id == 'shirt-yellow' && correctPerson[0].shirtColor == 'Yellow') {
+      if (id == 'shirt-yellow' && correctPerson[0].shirtColor === 'Yellow') {
         for (var i = 0; i < displayPeople.length; i++) {
           if (displayPeople[i].shirtColor !== 'Yellow') {
             displayPeople[i] = silhouette;
@@ -363,9 +327,9 @@ function checkAnswer() {
         alert('Yes, the mystery person is wearing a yellow shirt!');
       }
       if (id == 'shirt-yellow' && correctPerson[0].shirtColor !== 'Yellow') {
-        for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].shirtColor == 'Yellow') {
-            displayPeople[i] = silhouette;
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].shirtColor === 'Yellow') {
+            displayPeople[j] = silhouette;
           }
         }
         renderPeople();
@@ -381,30 +345,31 @@ function checkAnswer() {
     noGlasses();
 
     function glasses() {
-      if (id == 'glass-yes' && correctPerson[0].glasses == 'Yes') {
+      if (id == 'glass-yes' && correctPerson[0].glasses === 'Yes') {
         for (var i = 0; i < displayPeople.length; i++) {
           if (displayPeople[i].glasses !== 'Yes') {
             displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+
+        alert('Yes, the mystery person is wearing glasses!');
+      }
+      if (id == 'glass-yes' && correctPerson[0].glasses !== 'Yes') {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].glasses === 'Yes') {
+            displayPeople[j] = silhouette;
           }
         }
         renderPeople();
         alert('No, the mystery person is not wearing glasses!');
       }
-      if (id == 'glass-yes' && correctPerson[0].glasses !== 'Yes') {
-        for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].glasses == 'No') {
-            displayPeople[i] = silhouette;
-          }
-        }
-        renderPeople();
-        alert('Yes, the mystery person is wearing glasses!');
-      }
     }
 
-    function noGlasses(){
-      if (id == 'glass-no' && correctPerson[0].glasses == 'No') {
+    function noGlasses() {
+      if (id == 'glass-no' && correctPerson[0].glasses === 'No') {
         for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].glasses !== 'Yes') {
+          if (displayPeople[i].glasses !== 'No') {
             displayPeople[i] = silhouette;
           }
         }
@@ -412,9 +377,9 @@ function checkAnswer() {
         alert('Yes, the mystery person is not wearing glasses!');
       }
       if (id == 'glass-no' && correctPerson[0].glasses !== 'No') {
-        for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].glasses == 'No') {
-            displayPeople[i] = silhouette;
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].glasses === 'No') {
+            displayPeople[j] = silhouette;
           }
         }
         renderPeople();
@@ -426,9 +391,12 @@ function checkAnswer() {
   function checkHairColor() {
 
     blackHair();
+    redHair();
+    blondeHair();
+    brownHair();
 
     function blackHair() {
-      if (id == 'hair-black' && correctPerson[0].hair == 'Black') {
+      if (id == 'hair-black' && correctPerson[0].hair === 'Black') {
         for (var i = 0; i < displayPeople.length; i++) {
           if (displayPeople[i].hair !== 'Black') {
             displayPeople[i] = silhouette;
@@ -438,35 +406,344 @@ function checkAnswer() {
         alert('Yes, the mystery person has black hair');
       }
       if (id == 'hair-black' && correctPerson[0].hair !== 'Black') {
-        for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].hair == 'Black') {
-            displayPeople[i] = silhouette;
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].hair === 'Black') {
+            displayPeople[j] = silhouette;
           }
         }
         renderPeople();
         alert('No, the mystery person does not have black hair');
       }
     }
+
+    function redHair() {
+      if (id == 'hair-red' && correctPerson[0].hair === 'Red') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].hair !== 'Red') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has red hair');
+      }
+      if (id == 'hair-red' && correctPerson[0].hair !== 'Red') {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].hair === 'Red') {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have red hair');
+      }
+    }
+
+    function blondeHair() {
+      if (id == 'hair-blonde' && correctPerson[0].hair === 'Blonde') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].hair !== 'Blonde') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has blonde hair');
+      }
+      if (id == 'hair-blonde' && correctPerson[0].hair !== 'Blonde') {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].hair === 'Blonde') {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have blonde hair');
+      }
+    }
+
+    function brownHair() {
+      if (id == 'hair-brown' && correctPerson[0].hair === 'Brown') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].hair !== 'Brown') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has brown hair');
+      }
+      if (id == 'hair-brown' && correctPerson[0].hair !== 'Brown') {
+        for (var j = 0; i < displayPeople.length; j++) {
+          if (displayPeople[j].hair === 'Brown') {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have brown hair');
+      }
+    }
+
   }
 
-  // function checkPronoun() {
+  function checkPronoun() {
 
-  // }
+    pronoun1();
+    pronoun2();
+    pronoun3();
 
-  // function checkFacialHair() {
+    function pronoun1() {
+      if (id == 'pro-1' && correctPerson[0].pronoun === 1) {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].pronoun !== 1) {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has prounoun type 1.');
+      }
+      if (id == 'pro-1' && correctPerson[0].pronoun !== 1) {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].pronoun === 1) {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have pronoun type 1.');
+      }
+    }
 
-  // }
+    function pronoun2() {
+      if (id == 'pro-2' && correctPerson[0].pronoun === 2) {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].pronoun !== 2) {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has prounoun type 2.');
+      }
+      if (id == 'pro-2' && correctPerson[0].pronoun !== 2) {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].pronoun === 2) {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have pronoun type 2.');
+      }
 
-  // function checkJobTitle() {
+    }
 
-  // }
+    function pronoun3() {
+      if (id == 'pro-3' && correctPerson[0].pronoun === 3) {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].pronoun !== 3) {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has prounoun type 3.');
+      }
+      if (id == 'pro-3' && correctPerson[0].pronoun !== 3) {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].pronoun === 3) {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have pronoun type 3.');
+      }
+    }
 
-  // function checkDepartment() {
+  }
 
-  // }
+  function checkFacialHair() {
+
+    facialHair();
+    noFacialHair();
+
+    function facialHair() {
+      if (id == 'facial-yes' && correctPerson[0].facialHair === 'Yes') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].facialHair !== 'Yes') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has facial hair.');
+      }
+      if (id == 'facial-yes' && correctPerson[0].facialHair !== 'Yes') {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].facialHair === 'Yes') {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have facial hair.');
+      }
+    }
+
+    function noFacialHair() {
+      if (id == 'facial-no' && correctPerson[0].facialHair === 'No') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].facialHair !== 'No') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person does not have facial hair.');
+      }
+      if (id == 'facial-no' && correctPerson[0].facialHair !== 'No') {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].facialHair === 'No') {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person has facial hair.');
+      }
+    }
+  }
+
+  function checkJobTitle() {
+
+    supervisor();
+    manager();
+    director();
+
+    function supervisor() {
+      if (id == 'job-super' && correctPerson[0].jobTitle === 'Supervisor') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].jobTitle !== 'Supervisor') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is a supervisor.');
+      }
+      if (id == 'job-super' && correctPerson[0].jobTitle !== 'Supervisor') {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].jobTitle === 'Supervisor') {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is not a supervisor.');
+      }
+    }
+
+    function manager() {
+      if (id == 'job-man' && correctPerson[0].jobTitle === 'Manager') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].jobTitle !== 'Manager') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is a manager.');
+      }
+      if (id == 'job-man' && correctPerson[0].jobTitle !== 'Manager') {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].jobTitle === 'Manager') {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is not a manager.');
+      }
+    }
+
+    function director() {
+      if (id == 'job-dir' && correctPerson[0].jobTitle === '') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].jobTitle !== '') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is a director.');
+      }
+      if (id == 'job-dir' && correctPerson[0].jobTitle !== '') {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].jobTitle === 'Director') {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is not a director.');
+      }
+    }
+
+  }
+
+  function checkDepartment() {
+
+    it();
+    hr();
+    marketing();
+
+    function it() {
+      if (id == 'dep-it' && correctPerson[0].department === 'IT') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].department !== 'IT') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is in IT.');
+      }
+      if (id == 'dep-it' && correctPerson[0].department !== 'IT') {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].department === 'IT') {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is not in IT.');
+      }
+    }
+
+    function hr() {
+      if (id == 'dep-hr' && correctPerson[0].department === 'HR') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].department !== 'HR') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is in HR.');
+      }
+      if (id == 'dep-hr' && correctPerson[0].department !== 'HR') {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].department === 'HR') {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is not in HR.');
+      }
+    }
+
+    function marketing() {
+      if (id == 'dep-market' && correctPerson[0].department === 'Marketing') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].department !== 'Marketing') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is in Marketing.');
+      }
+      if (id == 'dep-market' && correctPerson[0].department !== 'Marketing') {
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].department === 'Marketing') {
+            displayPeople[j] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is not in Marketing.');
+      }
+    }
+
+  }
 
 }
-
 
 
 // if(peopleGuessed <= 0){
