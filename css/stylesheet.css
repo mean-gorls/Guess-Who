@@ -1,12 +1,12 @@
 body {
   width: 100%;
   margin: 0 auto;
-  background-image: linear-gradient(to right, lightblue , orange);
+  background-image: linear-gradient(to right, rgb(102, 161, 181) , rgb(247, 177, 47));
 }
 
 #hero {
-  height: 450px;
-  width: 450px;
+  height: 350px;
+  width: 350px;
 }
 
 #logo {
