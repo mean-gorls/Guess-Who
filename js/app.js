@@ -225,100 +225,281 @@ var domDepartmentDir = document.getElementById('dep-dir');
 
 // domShirts.addEventListener('click', checkShirt);
 
-$('.shirt-color').click(checkShirt);
+$('.allCategories').click(checkAnswer);
 
-function checkShirt() {
-
+function checkAnswer() {
   var id = event.currentTarget.id;
 
-  if (id == 'shirt-black' && correctPerson[0].shirtColor == 'Black') {
-    for (var i = 0; i < displayPeople.length; i++) {
-      if (displayPeople[i].shirtColor !== 'Black') {
-        displayPeople[i] = silhouette;
+  checkShirt();
+  checkGlasses();
+  checkHairColor();
+  // checkPronoun();
+  // checkFacialHair();
+  // checkJobTitle();
+  // checkDepartment();
+
+  function checkShirt() {
+
+    blackShirt();
+    blueShirt();
+    whiteShirt();
+    greyShirt();
+    purpleShirt();
+    yellowShirt();
+
+    function blackShirt() {
+      if (id == 'shirt-black' && correctPerson[0].shirtColor == 'Black') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].shirtColor !== 'Black') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is wearing a black shirt!');
+      }
+      if (id == 'shirt-black' && correctPerson[0].shirtColor !== 'Black') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].shirtColor == 'Black') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is not wearing a black shirt!');
       }
     }
-    renderPeople();
-  }
-  if (id == 'shirt-black' && correctPerson[0].shirtColor !== 'Black') {
-    for (var i = 0; i < displayPeople.length; i++) {
-      if (displayPeople[i].shirtColor == 'Black') {
-        displayPeople[i] = silhouette;
+
+    function blueShirt() {
+      if (id == 'shirt-blue' && correctPerson[0].shirtColor == 'Blue') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].shirtColor !== 'Blue') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is wearing a blue shirt!');
+      }
+      if (id == 'shirt-blue' && correctPerson[0].shirtColor !== 'Blue') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].shirtColor == 'Blue') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is not wearing a blue shirt!');
       }
     }
-    renderPeople();
-  }
 
-  if (id == 'shirt-blue' && correctPerson[0].shirtColor == 'Blue') {
-    for (var i = 0; i < displayPeople.length; i++) {
-      if (displayPeople[i].shirtColor !== 'Blue') {
-        displayPeople[i] = silhouette;
+    function whiteShirt() {
+      if (id == 'shirt-white' && correctPerson[0].shirtColor == 'White') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].shirtColor !== 'White') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is wearing a white shirt!');
+      }
+      if (id == 'shirt-white' && correctPerson[0].shirtColor !== 'White') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].shirtColor == 'White') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is not wearing a white shirt!');
       }
     }
-    renderPeople();
-  }
-  if (id == 'shirt-blue' && correctPerson[0].shirtColor !== 'Blue') {
-    for (var i = 0; i < displayPeople.length; i++) {
-      if (displayPeople[i].shirtColor == 'Blue') {
-        displayPeople[i] = silhouette;
+
+    function greyShirt() {
+      if (id == 'shirt-grey' && correctPerson[0].shirtColor == 'Grey') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].shirtColor !== 'Grey') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is wearing a grey shirt!');
+      }
+      if (id == 'shirt-grey' && correctPerson[0].shirtColor !== 'Grey') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].shirtColor == 'Grey') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is not wearing a grey shirt!');
       }
     }
-    renderPeople();
-  }
 
-  if (id == 'shirt-white' && correctPerson[0].shirtColor == 'White') {
-    for (var i = 0; i < displayPeople.length; i++) {
-      if (displayPeople[i].shirtColor !== 'White') {
-        displayPeople[i] = silhouette;
+    function purpleShirt() {
+      if (id == 'shirt-purple' && correctPerson[0].shirtColor == 'Purple') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].shirtColor !== 'Purple') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is wearing a purple shirt!');
+      }
+      if (id == 'shirt-purple' && correctPerson[0].shirtColor !== 'Purple') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].shirtColor == 'Purple') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is not wearing a purple shirt!');
       }
     }
-    renderPeople();
-  }
-  if (id == 'shirt-white' && correctPerson[0].shirtColor !== 'White') {
-    for (var i = 0; i < displayPeople.length; i++) {
-      if (displayPeople[i].shirtColor == 'White') {
-        displayPeople[i] = silhouette;
+
+    function yellowShirt() {
+      if (id == 'shirt-yellow' && correctPerson[0].shirtColor == 'Yellow') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].shirtColor !== 'Yellow') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is wearing a yellow shirt!');
+      }
+      if (id == 'shirt-yellow' && correctPerson[0].shirtColor !== 'Yellow') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].shirtColor == 'Yellow') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is not wearing a yellow shirt!');
       }
     }
-    renderPeople();
+
   }
 
-}
+  function checkGlasses() {
 
+    glasses();
+    noGlasses();
 
-if (id == 'shirt-' && correctPerson[0].shirtColor == '') {
-  for (var i = 0; i < displayPeople.length; i++) {
-    if (displayPeople[i].shirtColor !== '') {
-      displayPeople[i] = silhouette;
+    function glasses() {
+      if (id == 'glass-yes' && correctPerson[0].glasses == 'Yes') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].glasses !== 'Yes') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is not wearing glasses!');
+      }
+      if (id == 'glass-yes' && correctPerson[0].glasses !== 'Yes') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].glasses == 'No') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is wearing glasses!');
+      }
+    }
+
+    function noGlasses(){
+      if (id == 'glass-no' && correctPerson[0].glasses == 'No') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].glasses !== 'Yes') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person is not wearing glasses!');
+      }
+      if (id == 'glass-no' && correctPerson[0].glasses !== 'No') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].glasses == 'No') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person is wearing glasses!');
+      }
     }
   }
-  renderPeople();
-}
-if (id == 'shirt-' && correctPerson[0].shirtColor !== '') {
-  for (var i = 0; i < displayPeople.length; i++) {
-    if (displayPeople[i].shirtColor == '') {
-      displayPeople[i] = silhouette;
+
+  function checkHairColor() {
+
+    blackHair();
+
+    function blackHair() {
+      if (id == 'hair-black' && correctPerson[0].hair == 'Black') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].hair !== 'Black') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has black hair');
+      }
+      if (id == 'hair-black' && correctPerson[0].hair !== 'Black') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].hair == 'Black') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have black hair');
+      }
     }
   }
-  renderPeople();
-}
 
+  // function checkPronoun() {
 
-
-
-
-
-  // var id = event.target.id;
-  // if(id == domShirtBlack){
-  //   console.log('checkShirt if id: ' , id);
-  //   if(correctPerson.shirtColor === 'black'){
-  //     for( var i = 0; i < displayPeople.length; i++){
-  //       if(displayPeople[i].shirtColor !== 'black'){
-  //         displayPeople[i] = silhouette;
-  //       }
-  //     }
-  //   }
   // }
 
+  // function checkFacialHair() {
+
+  // }
+
+  // function checkJobTitle() {
+
+  // }
+
+  // function checkDepartment() {
+
+  // }
+
+}
+
+
+if (id == 'hair-' && correctPerson[0].hair == '') {
+  for (var i = 0; i < displayPeople.length; i++) {
+    if (displayPeople[i].hair !== '') {
+      displayPeople[i] = silhouette;
+    }
+  }
+  renderPeople();
+  alert('Yes, the mystery person has  hair');
+}
+if (id == 'hair-' && correctPerson[0].hair !== '') {
+  for (var i = 0; i < displayPeople.length; i++) {
+    if (displayPeople[i].hair == '') {
+      displayPeople[i] = silhouette;
+    }
+  }
+  renderPeople();
+  alert('No, the mystery person does not have  hair');
+}
+
+
+// var id = event.target.id;
+// if(id == domShirtBlack){
+//   console.log('checkShirt if id: ' , id);
+//   if(correctPerson.shirtColor === 'black'){
+//     for( var i = 0; i < displayPeople.length; i++){
+//       if(displayPeople[i].shirtColor !== 'black'){
+//         displayPeople[i] = silhouette;
+//       }
+//     }
+//   }
+// }
+
 // if(peopleGuessed <= 0){
-//   //clear all local storage & send them to landing page 
+//   //clear all local storage & send them to landing page
 // }
