@@ -174,8 +174,7 @@ function guessPerson() {
   console.log(id);
   console.log(correctPerson[0].id);
   if (id == correctPerson[0].id) {
-    alert('YEP!');
-
+    alert('You won! Starting a new game.');
   }
   else {
     peopleGuessed--;
@@ -355,9 +354,9 @@ function checkAnswer() {
         alert('Yes, the mystery person is wearing glasses!');
       }
       if (id === 'glass-yes' && correctPerson[0].glasses !== 'Yes') {
-        for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].glasses === 'Yes') {
-            displayPeople[i] = silhouette;
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].glasses === 'Yes') {
+            displayPeople[j] = silhouette;
           }
         }
         renderPeople();
@@ -376,9 +375,9 @@ function checkAnswer() {
         alert('Yes, the mystery person is not wearing glasses!');
       }
       if (id === 'glass-no' && correctPerson[0].glasses !== 'No') {
-        for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].glasses === 'No') {
-            displayPeople[i] = silhouette;
+        for (var j = 0; j < displayPeople.length; j++) {
+          if (displayPeople[j].glasses === 'No') {
+            displayPeople[j] = silhouette;
           }
         }
         renderPeople();
