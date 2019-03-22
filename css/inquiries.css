@@ -2,6 +2,20 @@
   outline: solid 1px orange;
 } */
 
+.title-heading {
+  font-family: 'Baloo', cursive;
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+
+#logo {
+  height: 70px;
+  width: 120px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
 body {
   position: relative;
   margin: 0 auto;
