@@ -118,6 +118,7 @@ function createHiddenPerson() {
 }
 
 var guessButton = document.createElement('button');
+
 function displaySelectedCharacter(event) {
   // var last = document.getElementById('character-details').lastChild;
   document.getElementById('character-details').innerHTML = '';
