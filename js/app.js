@@ -185,43 +185,6 @@ function guessPerson() {
 
 guessButton.addEventListener('click', guessPerson);
 //event listeners for all questions
-var domShirts = document.getElementsByClassName('shirt-color');
-var domGlasses = document.getElementById('glasses');
-var domHair = document.getElementById('hair-color');
-var domPronoun = document.getElementById('pronoun');
-var domFacial = document.getElementById('facial');
-var domJobTitle = document.getElementById('job-title');
-var domDepartment = document.getElementById('department');
-
-var domShirtBlack = document.getElementById('shirt-black');
-var domShirtBlue = document.getElementById('shirt-blue');
-var domShirtWhite = document.getElementById('shirt-white');
-var domShirtGrey = document.getElementById('shirt-grey');
-var domShirtPurple = document.getElementById('shirt-purple');
-var domShirtYellow = document.getElementById('shirt-yellow');
-
-var domGlassesYes = document.getElementById('glass-yes');
-var domGlassesNo = document.getElementById('glass-no');
-
-var domHairBlack = document.getElementById('hair-black');
-var domHairBrown = document.getElementById('hair-brown');
-var domHairRed = document.getElementById('hair-red');
-var domHairBlonde = document.getElementById('hair-blonde');
-
-var domPronoun1 = document.getElementById('pro-1');
-var domPronoun2 = document.getElementById('pro-2');
-var domPronoun3 = document.getElementById('pro-3');
-
-var domFacialNo = document.getElementById('facial-no');
-var domFacialYes = document.getElementById('facial-yes');
-
-var domJobtitleSuper = document.getElementById('job-super');
-var domJobtitleMan = document.getElementById('job-man');
-var domJobtitleDir = document.getElementById('job-dir');
-
-var domDepartmentIt = document.getElementById('dep-it');
-var domDepartmentHr = document.getElementById('dep-hr');
-var domDepartmentDir = document.getElementById('dep-dir');
 
 $('.allCategories').click(checkAnswer);
 
@@ -682,3 +645,42 @@ function checkAnswer() {
 // if(peopleGuessed <= 0){
 //   //clear all local storage & send them to landing page
 // }
+
+
+// var domShirts = document.getElementsByClassName('shirt-color');
+// var domGlasses = document.getElementById('glasses');
+// var domHair = document.getElementById('hair-color');
+// var domPronoun = document.getElementById('pronoun');
+// var domFacial = document.getElementById('facial');
+// var domJobTitle = document.getElementById('job-title');
+// var domDepartment = document.getElementById('department');
+
+// var domShirtBlack = document.getElementById('shirt-black');
+// var domShirtBlue = document.getElementById('shirt-blue');
+// var domShirtWhite = document.getElementById('shirt-white');
+// var domShirtGrey = document.getElementById('shirt-grey');
+// var domShirtPurple = document.getElementById('shirt-purple');
+// var domShirtYellow = document.getElementById('shirt-yellow');
+
+// var domGlassesYes = document.getElementById('glass-yes');
+// var domGlassesNo = document.getElementById('glass-no');
+
+// var domHairBlack = document.getElementById('hair-black');
+// var domHairBrown = document.getElementById('hair-brown');
+// var domHairRed = document.getElementById('hair-red');
+// var domHairBlonde = document.getElementById('hair-blonde');
+
+// var domPronoun1 = document.getElementById('pro-1');
+// var domPronoun2 = document.getElementById('pro-2');
+// var domPronoun3 = document.getElementById('pro-3');
+
+// var domFacialNo = document.getElementById('facial-no');
+// var domFacialYes = document.getElementById('facial-yes');
+
+// var domJobtitleSuper = document.getElementById('job-super');
+// var domJobtitleMan = document.getElementById('job-man');
+// var domJobtitleDir = document.getElementById('job-dir');
+
+// var domDepartmentIt = document.getElementById('dep-it');
+// var domDepartmentHr = document.getElementById('dep-hr');
+// var domDepartmentDir = document.getElementById('dep-dir');
