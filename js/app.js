@@ -230,7 +230,7 @@ function checkAnswer() {
   checkJobTitle();
   checkDepartment();
   storeData();
-}
+
 function checkShirt() {
 
   blackShirt();
@@ -786,7 +786,7 @@ function checkDepartment() {
   }
 
 }
-
+}
 
 // if(remainingGuesses <= 0){
 //   //clear all local storage & send them to landing page
