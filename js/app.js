@@ -17,7 +17,7 @@ var glassesArr = ['Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'No', 
 
 var shirtArr = ['White', 'White', 'Black', 'Grey', 'Blue', 'Purple', 'Blue', 'Blue', 'Grey', 'Black', 'White', 'Grey', 'Purple', 'Black', 'Yellow', 'White', 'White', 'White', 'Yellow', 'White', 'Grey', 'Yellow', 'Grey', 'Grey', 'Purple', 'Purple', 'White', 'Black', 'Grey', 'White', 'Blue', 'Blue', 'Yellow'];
 
-var facialArr = ['Yes', 'Yes', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'Yes',];
+var facialArr = ['Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No'];
 
 var departmentArr = ['Marketing', 'IT', 'Marketing', 'HR', 'HR', 'HR', 'IT', 'HR', 'Marketing', 'IT', 'HR', 'HR', 'Marketing', 'IT', 'HR', 'Marketing', 'HR', 'IT', 'Marketing', 'HR', 'IT', 'Marketing', 'HR', 'Marketing', 'Marketing', 'IT', 'IT', 'HR', 'IT', 'HR', 'Marketing', 'Marketing', 'IT'];
 
@@ -223,9 +223,9 @@ var domDepartmentIt = document.getElementById('dep-it');
 var domDepartmentHr = document.getElementById('dep-hr');
 var domDepartmentDir = document.getElementById('dep-dir');
 
-// domShirts.addEventListener('click', checkShirt);
-
 $('.allCategories').click(checkAnswer);
+
+// I need to check the glasses logic and facial hair logic, anything with yes and no answers.
 
 function checkAnswer() {
   var id = event.currentTarget.id;
@@ -233,8 +233,8 @@ function checkAnswer() {
   checkShirt();
   checkGlasses();
   checkHairColor();
-  // checkPronoun();
-  // checkFacialHair();
+  checkPronoun();
+  checkFacialHair();
   // checkJobTitle();
   // checkDepartment();
 
@@ -392,7 +392,7 @@ function checkAnswer() {
       }
       if (id == 'glass-yes' && correctPerson[0].glasses !== 'Yes') {
         for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].glasses == 'No') {
+          if (displayPeople[i].glasses == 'Yes') {
             displayPeople[i] = silhouette;
           }
         }
@@ -404,7 +404,7 @@ function checkAnswer() {
     function noGlasses(){
       if (id == 'glass-no' && correctPerson[0].glasses == 'No') {
         for (var i = 0; i < displayPeople.length; i++) {
-          if (displayPeople[i].glasses !== 'Yes') {
+          if (displayPeople[i].glasses !== 'No') {
             displayPeople[i] = silhouette;
           }
         }
@@ -426,6 +426,9 @@ function checkAnswer() {
   function checkHairColor() {
 
     blackHair();
+    redHair();
+    blondeHair();
+    brownHair();
 
     function blackHair() {
       if (id == 'hair-black' && correctPerson[0].hair == 'Black') {
@@ -447,15 +450,191 @@ function checkAnswer() {
         alert('No, the mystery person does not have black hair');
       }
     }
+
+    function redHair() {
+      if (id == 'hair-red' && correctPerson[0].hair == 'Red') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].hair !== 'Red') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has red hair');
+      }
+      if (id == 'hair-red' && correctPerson[0].hair !== 'Red') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].hair == 'Red') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have red hair');
+      }
+    }
+
+    function blondeHair() {
+      if (id == 'hair-blonde' && correctPerson[0].hair == 'Blonde') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].hair !== 'Blonde') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has blonde hair');
+      }
+      if (id == 'hair-blonde' && correctPerson[0].hair !== 'Blonde') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].hair == 'Blonde') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have blonde hair');
+      }
+    }
+
+    function brownHair() {
+      if (id == 'hair-brown' && correctPerson[0].hair == 'Brown') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].hair !== 'Brown') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has brown hair');
+      }
+      if (id == 'hair-brown' && correctPerson[0].hair !== 'Brown') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].hair == 'Brown') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have brown hair');
+      }
+    }
+
   }
 
-  // function checkPronoun() {
+  function checkPronoun() {
 
-  // }
+    pronoun1();
+    pronoun2();
+    pronoun3();
 
-  // function checkFacialHair() {
+    function pronoun1() {
+      if (id == 'pro-1' && correctPerson[0].pronoun == 1) {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].pronoun !== 1) {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has prounoun type 1.');
+      }
+      if (id == 'pro-1' && correctPerson[0].pronoun !== 1) {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].pronoun == 1) {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have pronoun type 1.');
+      }
+    }
 
-  // }
+    function pronoun2() {
+      if (id == 'pro-2' && correctPerson[0].pronoun == 2) {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].pronoun !== 2) {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has prounoun type 2.');
+      }
+      if (id == 'pro-2' && correctPerson[0].pronoun !== 2) {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].pronoun == 2) {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have pronoun type 2.');
+      }
+
+    }
+
+    function pronoun3() {
+      if (id == 'pro-3' && correctPerson[0].pronoun == 3) {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].pronoun !== 3) {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has prounoun type 3.');
+      }
+      if (id == 'pro-3' && correctPerson[0].pronoun !== 3) {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].pronoun == 3) {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have pronoun type 3.');
+      }
+    }
+
+  }
+
+  function checkFacialHair() {
+
+    facialHair();
+    noFacialHair();
+
+    function facialHair() {
+      if (id == 'facial-yes' && correctPerson[0].facialHair == 'Yes') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].facialHair !== 'Yes') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person has facial hair.');
+      }
+      if (id == 'facial-yes' && correctPerson[0].facialHair !== 'Yes') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].facialHair == 'Yes') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person does not have facial hair.');
+      }
+    }
+
+    function noFacialHair(){
+      if (id == 'facial-no' && correctPerson[0].facialHair == 'No') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].facialHair !== 'No') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('Yes, the mystery person does not have facial hair.');
+      }
+      if (id == 'facial-no' && correctPerson[0].facialHair !== 'No') {
+        for (var i = 0; i < displayPeople.length; i++) {
+          if (displayPeople[i].facialHair == 'No') {
+            displayPeople[i] = silhouette;
+          }
+        }
+        renderPeople();
+        alert('No, the mystery person has facial hair.');
+      }
+    }
+  }
 
   // function checkJobTitle() {
 
@@ -468,24 +647,24 @@ function checkAnswer() {
 }
 
 
-if (id == 'hair-' && correctPerson[0].hair == '') {
-  for (var i = 0; i < displayPeople.length; i++) {
-    if (displayPeople[i].hair !== '') {
-      displayPeople[i] = silhouette;
-    }
-  }
-  renderPeople();
-  alert('Yes, the mystery person has  hair');
-}
-if (id == 'hair-' && correctPerson[0].hair !== '') {
-  for (var i = 0; i < displayPeople.length; i++) {
-    if (displayPeople[i].hair == '') {
-      displayPeople[i] = silhouette;
-    }
-  }
-  renderPeople();
-  alert('No, the mystery person does not have  hair');
-}
+// if (id == 'pro-' && correctPerson[0].pronoun == '') {
+//   for (var i = 0; i < displayPeople.length; i++) {
+//     if (displayPeople[i].pronoun !== '') {
+//       displayPeople[i] = silhouette;
+//     }
+//   }
+//   renderPeople();
+//   alert('Yes, the mystery person has prounoun type .');
+// }
+// if (id == 'pro-' && correctPerson[0].pronoun !== '') {
+//   for (var i = 0; i < displayPeople.length; i++) {
+//     if (displayPeople[i].pronoun == '') {
+//       displayPeople[i] = silhouette;
+//     }
+//   }
+//   renderPeople();
+//   alert('No, the mystery person does not have pronoun type .');
+// }
 
 
 // var id = event.target.id;
