@@ -42,8 +42,8 @@ body {
 
 #character-details img {
   border-top-right-radius: 20%;
-  height: 250px;
-  width: 250px;
+  height: 220px;
+  width: 220px;
   padding-bottom: 20px;
 }
 
@@ -58,7 +58,7 @@ body {
 }
 
 table img {
-  margin: 10px;
+  margin: 5px;
   border-radius: 20%;
 }
 
@@ -82,8 +82,8 @@ table {
 }
 
 table img {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   text-align: center;
 }
 
