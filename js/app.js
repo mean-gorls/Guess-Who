@@ -1,25 +1,34 @@
 'use strict';
 
 var peopleGuessed = 2;
-var peopleNamesArray = [];
 var allPeople = [];
 var displayPeople = [];
 var correctPerson = [];
-var currentGuess = [];
+// var remainingQuestions = 5;
 
 var gameTable = document.getElementById('game');
 var selectedCharacter = document.getElementById('character-details');
 
 var namesArr = ['Adam', 'Brad', 'Brody', 'Bryce', 'Charles', 'David', 'Donnie', 'Gus', 'Haley', 'Harry', 'John', 'Karen', 'Kathy', 'Keith', 'Kelsey', 'Ken', 'Kevin', 'Madeline', 'Malcolm', 'Margot', 'Mark', 'Matt', 'Megan', 'Melissa', 'Michael', 'Molly', 'Nicole', 'Ryan', 'Sam', 'Stacey', 'Tim', 'Todd', 'Tyler'];
-var hairArr = ['black', 'black', 'red', 'brown', 'brown', 'black', 'blonde', 'black', 'brown', 'brown', 'blonde', 'blonde', 'black', 'black', 'brown', 'black', 'blonde', 'red', 'black', 'blonde', 'red', 'brown', 'red', 'black', 'black', 'brown', 'black', 'brown', 'black', 'black', 'brown', 'black', 'brown'];
-var glassesArr = ['yes', 'no', 'no', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'yes', 'no', 'no', 'yes', 'no', 'yes', 'yes'];
-var shirtArr = ['white', 'white', 'black', 'grey', 'blue', 'purple', 'blue', 'blue', 'grey', 'black', 'white', 'grey', 'purple', 'black', 'yellow', 'white', 'white', 'white', 'yellow', 'white', 'grey', 'yellow', 'grey', 'grey', 'purple', 'purple', 'white', 'black', 'grey', 'white', 'blue', 'blue', 'yellow'];
-var facialArr = ['yes', 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'yes', 'no', 'no', 'no', 'no', 'yes', 'no', 'no', 'yes', 'no', 'yes', 'yes',];
-var departmentArr = ['marketing', 'it', 'marketing', 'hr', 'hr', 'hr', 'it', 'hr', 'marketing', 'it', 'hr', 'hr', 'marketing', 'it', 'hr', 'marketing', 'hr', 'it', 'marketing', 'hr', 'it', 'marketing', 'hr', 'marketing', 'marketing', 'it', 'it', 'hr', 'it', 'hr', 'marketing', 'marketing', 'it'];
+
+var hairArr = ['Black', 'Black', 'Red', 'Brown', 'Brown', 'Black', 'Blonde', 'Black', 'Brown', 'Brown', 'Blonde', 'Blonde', 'Black', 'Black', 'Brown', 'Black', 'Blonde', 'Red', 'Black', 'Blonde', 'Red', 'Brown', 'Red', 'Black', 'Black', 'Brown', 'Black', 'Brown', 'Black', 'Black', 'Brown', 'Black', 'Brown'];
+
+var glassesArr = ['Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'Yes'];
+
+var shirtArr = ['White', 'White', 'Black', 'Grey', 'Blue', 'Purple', 'Blue', 'Blue', 'Grey', 'Black', 'White', 'Grey', 'Purple', 'Black', 'Yellow', 'White', 'White', 'White', 'Yellow', 'White', 'Grey', 'Yellow', 'Grey', 'Grey', 'Purple', 'Purple', 'White', 'Black', 'Grey', 'White', 'Blue', 'Blue', 'Yellow'];
+
+var facialArr = ['Yes', 'Yes', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'Yes',];
+
+var departmentArr = ['Marketing', 'IT', 'Marketing', 'HR', 'HR', 'HR', 'IT', 'HR', 'Marketing', 'IT', 'HR', 'HR', 'Marketing', 'IT', 'HR', 'Marketing', 'HR', 'IT', 'Marketing', 'HR', 'IT', 'Marketing', 'HR', 'Marketing', 'Marketing', 'IT', 'IT', 'HR', 'IT', 'HR', 'Marketing', 'Marketing', 'IT'];
+
 var pronounArr = [2, 2, 3, 3, 2, 2, 2, 3, 3, 2, 1, 2, 1, 3, 1, 1, 2, 2, 1, 3, 1, 1, 3, 1, 3, 2, 1, 1, 3, 2, 2, 3, 3];
-var jobArr = ['director', ',supervisor', 'director', 'manager', 'manager', 'manager', 'supervisor', 'manager', 'director', 'supervisor', 'manager', 'manager', 'director', 'supervisor', 'manager', 'director', 'manager', 'supervisor', 'director', 'manager', 'supervisor', 'director', 'manager', 'director', 'director', 'supervisor', 'supervisor', 'manager', 'supervisor', 'manager', 'director', 'director', 'supervisor'];
-var silohouette = new Person('', '', '', '', '', '', '', '', '', '', '');
-silohouette.filepath = 'img/silohouette.png';
+
+var jobArr = ['Director', 'Supervisor', 'Director', 'Manager', 'Manager', 'Manager', 'Supervisor', 'Manager', 'Director', 'Supervisor', 'Manager', 'Manager', 'Director', 'Supervisor', 'Manager', 'Director', 'Manager', 'Supervisor', 'Director', 'Manager', 'Supervisor', 'Director', 'Manager', 'Director', 'Director', 'Supervisor', 'Supervisor', 'Manager', 'Supervisor', 'Manager', 'Director', 'Director', 'Supervisor'];
+
+var silhouette = new Person('', '', '', '', '', '', '', '', '', '', '');
+
+silhouette.filepath = 'img/silhouette.png';
+
 run();
 
 //Needs more arguments
@@ -86,7 +95,7 @@ function choosePeople() {
 }
 
 function renderPeople() {
-  console.log('Display People: ', displayPeople);
+  gameTable.innerHTML = '';
   for (var i = 0; i < 5; i++) {
     var row = document.createElement('tr');
     for (var j = 0; j < 5; j++) {
@@ -100,6 +109,7 @@ function renderPeople() {
     gameTable.appendChild(row);
   }
 }
+
 function createHiddenPerson() {
   var randomNumber = Math.floor(Math.random() * displayPeople.length);
   var chosen1 = displayPeople[randomNumber];
@@ -155,7 +165,6 @@ function displaySelectedCharacter(event) {
   displayLi.appendChild(guessButton);
 
   selectedCharacter.appendChild(displayLi);
-
 }
 
 gameTable.addEventListener('click', displaySelectedCharacter);
@@ -215,39 +224,100 @@ var domDepartmentHr = document.getElementById('dep-hr');
 var domDepartmentDir = document.getElementById('dep-dir');
 
 // domShirts.addEventListener('click', checkShirt);
+
 $('.shirt-color').click(checkShirt);
 
 function checkShirt() {
-  console.log(event.currentTarget.id);
+
   var id = event.currentTarget.id;
-  if (id == 'shirt-white' && correctPerson[0].shirtColor == 'white') {
+
+  if (id == 'shirt-black' && correctPerson[0].shirtColor == 'Black') {
     for (var i = 0; i < displayPeople.length; i++) {
-      console.log(id);
-      if (displayPeople[i].shirtColor !== 'white') {
-        displayPeople[i] = silohouette;
+      if (displayPeople[i].shirtColor !== 'Black') {
+        displayPeople[i] = silhouette;
       }
     }
+    renderPeople();
   }
-  else {
+  if (id == 'shirt-black' && correctPerson[0].shirtColor !== 'Black') {
     for (var i = 0; i < displayPeople.length; i++) {
-      console.log('else', id);
-      if (displayPeople[i].shirtColor == 'white') {
-        displayPeople[i] = silohouette;
+      if (displayPeople[i].shirtColor == 'Black') {
+        displayPeople[i] = silhouette;
       }
     }
+    renderPeople();
   }
+
+  if (id == 'shirt-blue' && correctPerson[0].shirtColor == 'Blue') {
+    for (var i = 0; i < displayPeople.length; i++) {
+      if (displayPeople[i].shirtColor !== 'Blue') {
+        displayPeople[i] = silhouette;
+      }
+    }
+    renderPeople();
+  }
+  if (id == 'shirt-blue' && correctPerson[0].shirtColor !== 'Blue') {
+    for (var i = 0; i < displayPeople.length; i++) {
+      if (displayPeople[i].shirtColor == 'Blue') {
+        displayPeople[i] = silhouette;
+      }
+    }
+    renderPeople();
+  }
+
+  if (id == 'shirt-white' && correctPerson[0].shirtColor == 'White') {
+    for (var i = 0; i < displayPeople.length; i++) {
+      if (displayPeople[i].shirtColor !== 'White') {
+        displayPeople[i] = silhouette;
+      }
+    }
+    renderPeople();
+  }
+  if (id == 'shirt-white' && correctPerson[0].shirtColor !== 'White') {
+    for (var i = 0; i < displayPeople.length; i++) {
+      if (displayPeople[i].shirtColor == 'White') {
+        displayPeople[i] = silhouette;
+      }
+    }
+    renderPeople();
+  }
+
+}
+
+
+if (id == 'shirt-' && correctPerson[0].shirtColor == '') {
+  for (var i = 0; i < displayPeople.length; i++) {
+    if (displayPeople[i].shirtColor !== '') {
+      displayPeople[i] = silhouette;
+    }
+  }
+  renderPeople();
+}
+if (id == 'shirt-' && correctPerson[0].shirtColor !== '') {
+  for (var i = 0; i < displayPeople.length; i++) {
+    if (displayPeople[i].shirtColor == '') {
+      displayPeople[i] = silhouette;
+    }
+  }
+  renderPeople();
+}
+
+
+
+
+
+
   // var id = event.target.id;
   // if(id == domShirtBlack){
   //   console.log('checkShirt if id: ' , id);
   //   if(correctPerson.shirtColor === 'black'){
   //     for( var i = 0; i < displayPeople.length; i++){
   //       if(displayPeople[i].shirtColor !== 'black'){
-  //         displayPeople[i] = silohouette;
+  //         displayPeople[i] = silhouette;
   //       }
   //     }
   //   }
   // }
-}
 
 // if(peopleGuessed <= 0){
 //   //clear all local storage & send them to landing page 
