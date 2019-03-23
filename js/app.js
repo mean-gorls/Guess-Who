@@ -253,7 +253,7 @@ function guessPerson() {
   remainingGuesses--;
 
   if (id == correctPerson[0].id) {
-    alert('You won!');
+    alert('Correct! You won!');
     gameOver();
     return;
   }
