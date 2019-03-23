@@ -3,10 +3,13 @@ body {
 }
 
 h1 {
-  margin-top: 20px;
-  font-size: 40px;
   text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  margin-top: 50px;
   font-family: 'Baloo', cursive;
+  font-size: 60px;
+  margin-bottom: 35px;
 }
 
 h2 {
@@ -33,7 +36,10 @@ section {
   padding-left: 50px;
   padding-right: 50px;
   height: 450px;
-  border: solid 7px rgba(255, 255, 255, 0.5);
+}
+
+.column:first-of-type {
+  border-right: solid 3px rgba(255, 255, 255, 0.5);
 }
 
 .row:after {
