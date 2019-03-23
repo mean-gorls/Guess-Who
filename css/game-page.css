@@ -77,9 +77,10 @@ a:visited:hover {
 
 #character-details {
   background-color: rgba(255, 255, 255, 0.5);
-  height: 69%;
+  height: 65%;
   border-top-right-radius: 45px;
-  margin-left: 8%;
+	margin-left: 8%;
+	margin-bottom: 50px;
   animation: MoveUpDown 5s linear infinite;
   position: absolute;
   left: 0;
