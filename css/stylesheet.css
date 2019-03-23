@@ -5,8 +5,8 @@ body {
 }
 
 #hero {
-  height: 350px;
-  width: 350px;
+  height: 310px;
+  width: 310px;
   -webkit-animation: bounce 3.2s ease-out;
   -webkit-animation: bounce 3.2s ease-in;
 	-moz-animation: bounce 800ms ease-out;

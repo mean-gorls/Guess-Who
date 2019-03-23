@@ -115,7 +115,7 @@ a:visited:hover {
 }
 
 #character-details li {
-  padding: 5px;
+  padding-top: 5px;
   font-family: 'Roboto', sans-serif;
   margin-left: 40px;
 }
@@ -193,7 +193,6 @@ header h1:before,
 	overflow-x: hidden;
   overflow-y: auto;
   margin-top: -70px;
-  margin-bottom: 30px;
 }
 
 .nav ul {
@@ -372,6 +371,10 @@ header h1:before,
 	padding: 0 !important;
 }
 
+.nav:after {
+	margin-bottom: 60px;
+}
+
 .nav > ul > li {
 	border-top: none;
 }
@@ -398,7 +401,6 @@ header h1:before,
 
 .nav .nav-submenu > ul {
 	margin: 0;
-	margin-bottom: 30px;
 }
 
 span.glyphicon.glyphicon-triangle-bottom {
