@@ -218,17 +218,17 @@ function displayScoreboard() {
     clearGuessUl();
     var createUl = document.createElement('ul');
     var liEl = document.createElement('li');
-    liEl.innerText = 'Remaining Guesses : ' + remainingGuesses;
+    liEl.innerText = 'Remaining Guesses: ' + remainingGuesses;
     createUl.appendChild(liEl);
     remainingGuess.appendChild(createUl);
-    console.log('Remaining Guesses : ' + remainingGuesses);
+    console.log('Remaining Guesses: ' + remainingGuesses);
   }
 
   function displayRemainingTurns() {
     clearTurnUl();
     var createUl = document.createElement('ul');
     var liEl = document.createElement('li');
-    liEl.innerText = 'Remaining Questions : ' + remainingQuestions;
+    liEl.innerText = 'Remaining Questions: ' + remainingQuestions;
     createUl.appendChild(liEl);
     remainingTurns.appendChild(createUl);
   }
@@ -247,36 +247,48 @@ function clearTurnUl() {
 }
 
 function guessPerson() {
+
   var id = event.target.id;
+
   if (id == correctPerson[0].id) {
     alert('You won!');
     gameOver();
     return;
   }
+
   else {
     remainingGuesses--;
+    alert('Incorrect! Remaining guesses: ' + remainingGuesses + '.');
+    var guessesString = JSON.stringify(remainingGuesses);
+    localStorage.setItem(guessesString, 'guessesString');
     displayScoreboard();
   }
 
-  if (remainingGuesses === 0) {
-    alert('No, game over. Try again.');
+  if (remainingGuesses < 1) {
+    alert('Game over...');
     gameOver();
     return;
-  } // if (remainingGuesses < 0) {
-  alert('No, try again. Remaining guesses : ' + remainingGuesses + '.');
-  var guessesString = JSON.stringify(remainingGuesses);
-  localStorage.setItem(guessesString, 'guessesString');
-  // console.log('');
-  //}
+  }
 }
 
 guessButton.addEventListener('click', guessPerson);
 
 function decreaseTurns() {
-  remainingQuestions-- ;
-  if (remainingQuestions === 0) {
-    alert('You are out of questions, guess who!');
+  remainingQuestions--;
+
+  if (remainingQuestions === 1) {
+    alert('You can ask 1 more question, make it count...');
+    return;
   }
+
+  if (remainingQuestions === 0) {
+    alert('You are out of questions! Choose who...');
+  }
+
+  if (remainingQuestions < 0) {
+    alert('Game over...');
+  }
+
 }
 
 //event listeners for all questions
@@ -502,7 +514,7 @@ function checkAnswer() {
           }
         }
         renderPeople();
-        alert('Yes, the mystery person has black hair');
+        alert('Yes, the mystery person has black hair.');
       }
       if (id == 'hair-black' && correctPerson[0].hair !== 'Black') {
         for (var j = 0; j < displayPeople.length; j++) {
@@ -511,7 +523,7 @@ function checkAnswer() {
           }
         }
         renderPeople();
-        alert('No, the mystery person does not have black hair');
+        alert('No, the mystery person does not have black hair.');
       }
     }
 
@@ -523,7 +535,7 @@ function checkAnswer() {
           }
         }
         renderPeople();
-        alert('Yes, the mystery person has red hair');
+        alert('Yes, the mystery person has red hair.');
       }
       if (id == 'hair-red' && correctPerson[0].hair !== 'Red') {
         for (var j = 0; j < displayPeople.length; j++) {
@@ -532,7 +544,7 @@ function checkAnswer() {
           }
         }
         renderPeople();
-        alert('No, the mystery person does not have red hair');
+        alert('No, the mystery person does not have red hair.');
       }
     }
 
@@ -544,7 +556,7 @@ function checkAnswer() {
           }
         }
         renderPeople();
-        alert('Yes, the mystery person has blonde hair');
+        alert('Yes, the mystery person has blonde hair.');
       }
       if (id == 'hair-blonde' && correctPerson[0].hair !== 'Blonde') {
         for (var j = 0; j < displayPeople.length; j++) {
@@ -553,7 +565,7 @@ function checkAnswer() {
           }
         }
         renderPeople();
-        alert('No, the mystery person does not have blonde hair');
+        alert('No, the mystery person does not have blonde hair.');
       }
     }
 
@@ -565,7 +577,7 @@ function checkAnswer() {
           }
         }
         renderPeople();
-        alert('Yes, the mystery person has brown hair');
+        alert('Yes, the mystery person has brown hair.');
       }
       if (id == 'hair-brown' && correctPerson[0].hair !== 'Brown') {
         for (var j = 0; i < displayPeople.length; j++) {
@@ -574,7 +586,7 @@ function checkAnswer() {
           }
         }
         renderPeople();
-        alert('No, the mystery person does not have brown hair');
+        alert('No, the mystery person does not have brown hair.');
       }
     }
 
@@ -865,9 +877,10 @@ function clearLocal() {
 }
 
 function gameOver() {
-  if (remainingGuesses < 0 || remainingQuestions < 0) {
+  if (remainingGuesses < 1 || remainingQuestions < 0) {
     clearLocal();
     location.reload();
+    run();
   }
 }
 
