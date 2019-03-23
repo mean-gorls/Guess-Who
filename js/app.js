@@ -250,25 +250,26 @@ function guessPerson() {
 
   var id = event.target.id;
 
+  remainingGuesses--;
+
   if (id == correctPerson[0].id) {
     alert('You won!');
     gameOver();
     return;
   }
 
+  if (remainingGuesses < 1) {
+    alert('Game over...');
+    gameOver();
+    return;
+  }
+
   else {
-    remainingGuesses--;
     alert('Incorrect! Remaining guesses: ' + remainingGuesses + '.');
     var guessesString = JSON.stringify(remainingGuesses);
     localStorage.setItem(guessesString, 'guessesString');
     displayScoreboard();
     storeData();
-  }
-
-  if (remainingGuesses < 1) {
-    alert('Game over...');
-    gameOver();
-    return;
   }
 }
 
