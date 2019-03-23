@@ -276,7 +276,7 @@ function guessPerson() {
 guessButton.addEventListener('click', guessPerson);
 
 function decreaseTurns() {
-  
+
   remainingQuestions--;
 
   if (remainingQuestions === 1) {

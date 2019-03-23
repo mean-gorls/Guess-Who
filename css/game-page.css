@@ -7,28 +7,14 @@ body {
 } */
 
 section p {
-  position: absolute;
-  top: 100px;
-  left: 1250px;
+	position: absolute;
+	text-align: center;
+  top: 120px;
+  left: 1050px;
   font-size: 40px;
   font-family: 'Baloo', cursive;
-  color: black;
-}
-
-section p:nth-child(2) {
-  position: absolute;
-  top: 150px;
-  left: 1180px;
-  font-size: 40px;
-  font-family: 'Baloo', cursive;
-}
-
-section p:last-child {
-  position: absolute;
-  top: 170px;
-  left: 1150px;
-  font-size: 40px;
-  font-family: 'Baloo', cursive;
+	color: black;
+	margin-right: 60px;
 }
 
 #guesses-x {
@@ -37,7 +23,10 @@ section p:last-child {
   top: 400px;
   margin-left: 1100px;
   height: 100px;
-  width: 250px;
+	width: 250px;
+	padding-top: 35px;
+	font-size: 20px;
+  font-family: 'Baloo', cursive;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 15px;
 }
@@ -48,7 +37,10 @@ section p:last-child {
   top: 520px;
   margin-left: 1100px;
   height: 100px;
-  width: 250px;
+	width: 250px;
+	padding-top: 35px;
+	font-size: 20px;
+  font-family: 'Baloo', cursive;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 15px;
 }
@@ -406,11 +398,13 @@ header h1:before,
 
 .nav .nav-submenu > ul {
 	margin: 0;
-}
+	margin-bottom: 30px;
 }
 
 span.glyphicon.glyphicon-triangle-bottom {
   position: absolute;
   margin-top: 17px;
   margin-left: 10px;
+}
+
 }
