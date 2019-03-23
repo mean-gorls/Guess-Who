@@ -2,6 +2,22 @@ body {
   background-image: linear-gradient(to right, rgb(102, 161, 181) , rgb(247, 177, 47));
 }
 
+* {
+  outline: solid 1px black;
+}
+
+#guesses-x {
+  display: block;
+  margin-left: 1150px;
+  width: 200px;
+}
+
+#remaining-turns {
+  display: block;
+  margin-left: 1150px;
+  width: 200px;
+}
+
 #logo {
   height: 80px;
   width: 130px;
@@ -12,13 +28,32 @@ body {
   left: 0;
 }
 
+a:link {
+  text-decoration: none !important;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none !important;
+  color: black;
+}
+
+a:link:hover {
+  text-decoration: none !important;
+  color: black;
+}
+
+a:visited:hover {
+  text-decoration: none !important;
+  color: black;
+}
+
 #character-details {
-  position: absolute;
   background-color: rgba(255, 255, 255, 0.5);
-  height: 585px;
+  height: 69%;
   border-top-right-radius: 20%;
   border-bottom-right-radius: 2%;
-  margin-left: 120px;
+  margin-left: 8%;
   animation: MoveUpDown 5s linear infinite;
   position: absolute;
   left: 0;
@@ -45,6 +80,7 @@ body {
   color: rgb(102, 161, 181);
 }
 
+
 #character-details img {
   border-top-right-radius: 20%;
   height: 220px;
@@ -66,6 +102,7 @@ body {
     bottom: 120px;
   }
 }
+
 
 table img {
   -webkit-transform: scale(1);

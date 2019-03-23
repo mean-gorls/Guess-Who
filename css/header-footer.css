@@ -35,6 +35,15 @@ header {
   color: black;
 }
 
+.navs { 
+  transition: all .2s ease-in-out;
+  text-decoration: none;
+}
+
+.navs:hover { 
+  transform: scale(1.1); 
+}
+
 a:link {
   text-decoration: none;
   color: black;

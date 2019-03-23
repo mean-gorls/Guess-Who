@@ -22,12 +22,14 @@ body {
   padding-top: 10px;
 }
 
-main h1 {
-  margin-top: 20px;
-  font-size: 80px;
+h1 {
   text-align: center;
-  padding-bottom: 20px;
+  font-weight: bold;
+  font-size: 40px;
+  margin-top: 10px;
   font-family: 'Baloo', cursive;
+  font-size: 60px;
+  margin-bottom: 35px;
 }
 
 main:not(h1) {
@@ -35,10 +37,10 @@ main:not(h1) {
 }
 
 button {
-  padding: 20px 20px;
+  padding: 15px 15px;
   margin-top: 10px;
   width: 600px;
-  margin-bottom: 0px;
+  margin-bottom: -10px;
   background-color: #2E2722;
   border-color: #2E2722;
   color: rgb(102, 161, 181);

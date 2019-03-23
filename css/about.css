@@ -5,25 +5,46 @@ body {
 #logo {
   height: 70px;
   width: 120px;
-  padding-left: 10px;
+  margin-left: 0px;
   padding-top: 10px;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-section img {
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  margin-top: 50px;
+  font-family: 'Baloo', cursive;
+  font-size: 60px;
+  margin-bottom: 35px;
 }
 
-#jonny img {
+.photos {
   border-radius: 50%;
   width: 200px;
   height: 200px;
   display: inline-block;
-  text-align: center;
+}
+
+table {
+  margin: 0 auto;
+}
+
+img {
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+td {
+  font-family: 'Roboto', sans-serif;
+  width: 500px;
+  padding-left: 50px;
+  padding-right: 50px;
+  line-height: 25px;
+  border-right: 3px solid rgba(255, 255, 255, 0.5);
 }
 
 @-webkit-keyframes bounce {
