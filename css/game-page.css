@@ -2,20 +2,55 @@ body {
   background-image: linear-gradient(to right, rgb(102, 161, 181) , rgb(247, 177, 47));
 }
 
-* {
+/* * {
   outline: solid 1px black;
+} */
+
+section p {
+  position: absolute;
+  top: 100px;
+  left: 1250px;
+  font-size: 40px;
+  font-family: 'Baloo', cursive;
+  color: black;
+}
+
+section p:nth-child(2) {
+  position: absolute;
+  top: 150px;
+  left: 1180px;
+  font-size: 40px;
+  font-family: 'Baloo', cursive;
+}
+
+section p:last-child {
+  position: absolute;
+  top: 170px;
+  left: 1150px;
+  font-size: 40px;
+  font-family: 'Baloo', cursive;
 }
 
 #guesses-x {
-  display: block;
-  margin-left: 1150px;
-  width: 200px;
+  position: absolute;
+  text-align: center;
+  top: 400px;
+  margin-left: 1100px;
+  height: 100px;
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
 }
 
 #remaining-turns {
-  display: block;
-  margin-left: 1150px;
-  width: 200px;
+  position: absolute;
+  text-align: center;
+  top: 520px;
+  margin-left: 1100px;
+  height: 100px;
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
 }
 
 #logo {
@@ -51,8 +86,7 @@ a:visited:hover {
 #character-details {
   background-color: rgba(255, 255, 255, 0.5);
   height: 69%;
-  border-top-right-radius: 20%;
-  border-bottom-right-radius: 2%;
+  border-top-right-radius: 45px;
   margin-left: 8%;
   animation: MoveUpDown 5s linear infinite;
   position: absolute;
@@ -116,7 +150,7 @@ table img {
 }
 
 table:first-of-type {
-  margin-top: 25px;
+  margin-top: 35px;
 }
 
 table img:hover {
@@ -166,7 +200,8 @@ header h1:before,
 	z-index: 900;
 	overflow-x: hidden;
   overflow-y: auto;
-  margin-bottom: 10px;
+  margin-top: -70px;
+  margin-bottom: 30px;
 }
 
 .nav ul {
