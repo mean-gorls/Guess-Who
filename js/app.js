@@ -274,6 +274,9 @@ guessButton.addEventListener('click', guessPerson);
 
 function decreaseTurns() {
   remainingQuestions-- ;
+  if (remainingQuestions === 0) {
+    alert('You are out of questions, guess who!');
+  }
 }
 
 //event listeners for all questions
@@ -293,8 +296,8 @@ function checkAnswer() {
   checkJobTitle();
   checkDepartment();
   decreaseTurns();
-  displayScoreboard();
   storeData();
+  displayScoreboard();
   gameOver();
 
   function checkShirt() {
@@ -577,20 +580,6 @@ function checkAnswer() {
 
   }
 
-  function storeData() {
-    var answer = JSON.stringify(correctPerson);
-    localStorage.setItem('answer', answer);
-
-    var remainingPeople = JSON.stringify(displayPeople);
-    localStorage.setItem('remainingPeople', remainingPeople);
-
-    var numQuestions = JSON.stringify(remainingQuestions);
-    localStorage.setItem('numQuestions', numQuestions);
-
-    var guessesString = JSON.stringify(remainingGuesses);
-    localStorage.setItem('guessesString', guessesString);
-  }
-
   function checkPronoun() {
 
     pronoun1();
@@ -852,17 +841,34 @@ function checkAnswer() {
     }
 
   }
+
+  function storeData() {
+    var answer = JSON.stringify(correctPerson);
+    localStorage.setItem('answer', answer);
+
+    var remainingPeople = JSON.stringify(displayPeople);
+    localStorage.setItem('remainingPeople', remainingPeople);
+
+    var numQuestions = JSON.stringify(remainingQuestions);
+    localStorage.setItem('numQuestions', numQuestions);
+
+    var guessesString = JSON.stringify(remainingGuesses);
+    localStorage.setItem('guessesString', guessesString);
+  }
+
 }
+
+playButton.addEventListener('click', gameOver);
 
 function clearLocal() {
   localStorage.clear();
 }
 
 function gameOver() {
-  if (remainingGuesses <= 0 || remainingQuestions <= 0) {
+  if (remainingGuesses < 0 || remainingQuestions < 0) {
     clearLocal();
-    run();
+    location.reload();
   }
 }
 
-playButton.addEventListener('click', gameOver);
+
