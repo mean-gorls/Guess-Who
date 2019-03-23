@@ -4,7 +4,7 @@ var remainingGuesses = 2;
 var allPeople = [];
 var displayPeople = [];
 var correctPerson = [];
-var remainingQuestions = 5;
+var remainingQuestions = 2;
 
 var gameTable = document.getElementById('game');
 var selectedCharacter = document.getElementById('character-details');
@@ -200,8 +200,6 @@ gameTable.addEventListener('click', displaySelectedCharacter);
 
 function guessPerson() {
   var id = event.target.id;
-  console.log(id);
-  console.log(correctPerson[0].id);
   if (id == correctPerson[0].id) {
     remainingGuesses--;
     alert('You won! Starting a new game.');
@@ -230,6 +228,7 @@ function checkAnswer() {
   checkJobTitle();
   checkDepartment();
   storeData();
+  gameOver();
 
 function checkShirt() {
 
@@ -787,7 +786,12 @@ function checkDepartment() {
 
 }
 }
+  function clearLocal(){
+    localStorage.clear();
+  }
 
-// if(remainingGuesses <= 0){
-//   //clear all local storage & send them to landing page
-// }
+function gameOver(){
+if(remainingGuesses <= 0 || remainingQuestions <= 0){
+  clearLocal();
+}
+}
