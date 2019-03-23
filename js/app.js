@@ -259,7 +259,7 @@ function guessPerson() {
   }
 
   if (remainingGuesses < 1) {
-    alert('Game over...');
+    alert('No, Game over...');
     gameOver();
     return;
   }
@@ -276,6 +276,7 @@ function guessPerson() {
 guessButton.addEventListener('click', guessPerson);
 
 function decreaseTurns() {
+  
   remainingQuestions--;
 
   if (remainingQuestions === 1) {
@@ -288,7 +289,7 @@ function decreaseTurns() {
   }
 
   if (remainingQuestions < 0) {
-    alert('Game over...');
+    alert('You asked a question when you had 0 remaining! Game over...');
   }
 
 }
