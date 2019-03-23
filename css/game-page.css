@@ -2,6 +2,22 @@ body {
   background-image: linear-gradient(to right, rgb(102, 161, 181) , rgb(247, 177, 47));
 }
 
+* {
+  outline: solid 1px black;
+}
+
+#guesses-x {
+  display: block;
+  margin-left: 1150px;
+  width: 200px;
+}
+
+#remaining-turns {
+  display: block;
+  margin-left: 1150px;
+  width: 200px;
+}
+
 #logo {
   height: 80px;
   width: 130px;
