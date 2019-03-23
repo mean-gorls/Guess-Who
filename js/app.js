@@ -262,6 +262,7 @@ function guessPerson() {
     var guessesString = JSON.stringify(remainingGuesses);
     localStorage.setItem(guessesString, 'guessesString');
     displayScoreboard();
+    storeData();
   }
 
   if (remainingGuesses < 1) {
@@ -853,21 +854,20 @@ function checkAnswer() {
     }
 
   }
+}
 
-  function storeData() {
-    var answer = JSON.stringify(correctPerson);
-    localStorage.setItem('answer', answer);
+function storeData() {
+  var answer = JSON.stringify(correctPerson);
+  localStorage.setItem('answer', answer);
 
-    var remainingPeople = JSON.stringify(displayPeople);
-    localStorage.setItem('remainingPeople', remainingPeople);
+  var remainingPeople = JSON.stringify(displayPeople);
+  localStorage.setItem('remainingPeople', remainingPeople);
 
-    var numQuestions = JSON.stringify(remainingQuestions);
-    localStorage.setItem('numQuestions', numQuestions);
+  var numQuestions = JSON.stringify(remainingQuestions);
+  localStorage.setItem('numQuestions', numQuestions);
 
-    var guessesString = JSON.stringify(remainingGuesses);
-    localStorage.setItem('guessesString', guessesString);
-  }
-
+  var guessesString = JSON.stringify(remainingGuesses);
+  localStorage.setItem('guessesString', guessesString);
 }
 
 playButton.addEventListener('click', gameOver);
