@@ -583,7 +583,7 @@ function checkAnswer() {
         alert('Yes, the mystery person has brown hair.');
       }
       if (id == 'hair-brown' && correctPerson[0].hair !== 'Brown') {
-        for (var j = 0; i < displayPeople.length; j++) {
+        for (var j = 0; j < displayPeople.length; j++) {
           if (displayPeople[j].hair === 'Brown') {
             displayPeople[j] = silhouette;
           }
