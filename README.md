@@ -1,3 +1,4 @@
 # Guess-Who
 ### Todo:
-* Refactor into React.js
+* Add Contact Us Functionality
+* Clean up corpse Code
