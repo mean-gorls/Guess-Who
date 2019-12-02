@@ -1,34 +1,34 @@
 'use strict';
 
-var remainingGuesses = 2;
-var allPeople = [];
-var displayPeople = [];
-var correctPerson = [];
-var remainingQuestions = 5;
+let remainingGuesses = 2;
+let allPeople = [];
+let displayPeople = [];
+let correctPerson = [];
+let remainingQuestions = 5;
 
-var gameTable = document.getElementById('game');
-var selectedCharacter = document.getElementById('character-details');
-var playButton = document.getElementById('play-button');
-var remainingGuess = document.getElementById('guesses-x');
-var remainingTurns = document.getElementById('remaining-turns');
+let gameTable = document.getElementById('game');
+let selectedCharacter = document.getElementById('character-details');
+let playButton = document.getElementById('play-button');
+let remainingGuess = document.getElementById('guesses-x');
+let remainingTurns = document.getElementById('remaining-turns');
 
-var namesArr = ['Adam', 'Brad', 'Brody', 'Bryce', 'Charles', 'David', 'Donnie', 'Gus', 'Haley', 'Harry', 'John', 'Karen', 'Kathy', 'Keith', 'Kelsey', 'Ken', 'Kevin', 'Madeline', 'Malcolm', 'Margot', 'Mark', 'Matt', 'Megan', 'Melissa', 'Michael', 'Molly', 'Nicole', 'Ryan', 'Sam', 'Stacey', 'Tim', 'Todd', 'Tyler'];
+const namesArr = ['Adam', 'Brad', 'Brody', 'Bryce', 'Charles', 'David', 'Donnie', 'Gus', 'Haley', 'Harry', 'John', 'Karen', 'Kathy', 'Keith', 'Kelsey', 'Ken', 'Kevin', 'Madeline', 'Malcolm', 'Margot', 'Mark', 'Matt', 'Megan', 'Melissa', 'Michael', 'Molly', 'Nicole', 'Ryan', 'Sam', 'Stacey', 'Tim', 'Todd', 'Tyler'];
 
-var hairArr = ['Black', 'Black', 'Red', 'Brown', 'Brown', 'Black', 'Blonde', 'Black', 'Brown', 'Brown', 'Blonde', 'Blonde', 'Black', 'Black', 'Brown', 'Black', 'Blonde', 'Red', 'Black', 'Blonde', 'Red', 'Brown', 'Red', 'Black', 'Black', 'Brown', 'Black', 'Brown', 'Black', 'Black', 'Brown', 'Black', 'Brown'];
+const hairArr = ['Black', 'Black', 'Red', 'Brown', 'Brown', 'Black', 'Blonde', 'Black', 'Brown', 'Brown', 'Blonde', 'Blonde', 'Black', 'Black', 'Brown', 'Black', 'Blonde', 'Red', 'Black', 'Blonde', 'Red', 'Brown', 'Red', 'Black', 'Black', 'Brown', 'Black', 'Brown', 'Black', 'Black', 'Brown', 'Black', 'Brown'];
 
-var glassesArr = ['Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'Yes'];
+const glassesArr = ['Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'Yes'];
 
-var shirtArr = ['White', 'White', 'Black', 'Grey', 'Blue', 'Purple', 'Blue', 'Blue', 'Grey', 'Black', 'White', 'Grey', 'Purple', 'Black', 'Yellow', 'White', 'White', 'White', 'Yellow', 'White', 'Grey', 'Yellow', 'Grey', 'Grey', 'Purple', 'Purple', 'White', 'Black', 'Grey', 'White', 'Blue', 'Blue', 'Yellow'];
+const shirtArr = ['White', 'White', 'Black', 'Grey', 'Blue', 'Purple', 'Blue', 'Blue', 'Grey', 'Black', 'White', 'Grey', 'Purple', 'Black', 'Yellow', 'White', 'White', 'White', 'Yellow', 'White', 'Grey', 'Yellow', 'Grey', 'Grey', 'Purple', 'Purple', 'White', 'Black', 'Grey', 'White', 'Blue', 'Blue', 'Yellow'];
 
-var facialArr = ['Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No'];
+const facialArr = ['Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No'];
 
-var departmentArr = ['Marketing', 'IT', 'Marketing', 'HR', 'HR', 'HR', 'IT', 'HR', 'Marketing', 'IT', 'HR', 'HR', 'Marketing', 'IT', 'HR', 'Marketing', 'HR', 'IT', 'Marketing', 'HR', 'IT', 'Marketing', 'HR', 'Marketing', 'Marketing', 'IT', 'IT', 'HR', 'IT', 'HR', 'Marketing', 'Marketing', 'IT'];
+const departmentArr = ['Marketing', 'IT', 'Marketing', 'HR', 'HR', 'HR', 'IT', 'HR', 'Marketing', 'IT', 'HR', 'HR', 'Marketing', 'IT', 'HR', 'Marketing', 'HR', 'IT', 'Marketing', 'HR', 'IT', 'Marketing', 'HR', 'Marketing', 'Marketing', 'IT', 'IT', 'HR', 'IT', 'HR', 'Marketing', 'Marketing', 'IT'];
 
-var pronounArr = [2, 2, 3, 3, 2, 2, 2, 3, 3, 2, 1, 2, 1, 3, 1, 1, 2, 2, 1, 3, 1, 1, 3, 1, 3, 2, 1, 1, 3, 2, 2, 3, 3];
+const pronounArr = [2, 2, 3, 3, 2, 2, 2, 3, 3, 2, 1, 2, 1, 3, 1, 1, 2, 2, 1, 3, 1, 1, 3, 1, 3, 2, 1, 1, 3, 2, 2, 3, 3];
 
-var jobArr = ['Director', 'Supervisor', 'Director', 'Manager', 'Manager', 'Manager', 'Supervisor', 'Manager', 'Director', 'Supervisor', 'Manager', 'Manager', 'Director', 'Supervisor', 'Manager', 'Director', 'Manager', 'Supervisor', 'Director', 'Manager', 'Supervisor', 'Director', 'Manager', 'Director', 'Director', 'Supervisor', 'Supervisor', 'Manager', 'Supervisor', 'Manager', 'Director', 'Director', 'Supervisor'];
+const jobArr = ['Director', 'Supervisor', 'Director', 'Manager', 'Manager', 'Manager', 'Supervisor', 'Manager', 'Director', 'Supervisor', 'Manager', 'Manager', 'Director', 'Supervisor', 'Manager', 'Director', 'Manager', 'Supervisor', 'Director', 'Manager', 'Supervisor', 'Director', 'Manager', 'Director', 'Director', 'Supervisor', 'Supervisor', 'Manager', 'Supervisor', 'Manager', 'Director', 'Director', 'Supervisor'];
 
-var silhouette = new Person('', '', '', '', '', '', '', '', '', '', '');
+let silhouette = new Person('', '', '', '', '', '', '', '', '', '', '');
 
 silhouette.filepath = 'img/silhouette.png';
 
@@ -67,24 +67,24 @@ function run() {
 }
 
 function populateAllPeople() {
-  for (var i = 0; i < namesArr.length; i++) {
-    var names = namesArr[i];
-    var hair = hairArr[i];
-    var glasses = glassesArr[i];
-    var shirt = shirtArr[i];
-    var facial = facialArr[i];
-    var department = departmentArr[i];
-    var proNoun = pronounArr[i];
-    var job = jobArr[i];
-    var id = i;
-    var holder = new Person(names, hair, glasses, shirt, facial, department, proNoun, job, id);
+  for (let i = 0; i < namesArr.length; i++) {
+    let names = namesArr[i];
+    let hair = hairArr[i];
+    let glasses = glassesArr[i];
+    let shirt = shirtArr[i];
+    let facial = facialArr[i];
+    let department = departmentArr[i];
+    let proNoun = pronounArr[i];
+    let job = jobArr[i];
+    let id = i;
+    let holder = new Person(names, hair, glasses, shirt, facial, department, proNoun, job, id);
     allPeople.push(holder);
   }
 }
 //function to populate displayed People array
 
 function displayPeopleIncludes(id) {
-  for (var i = 0; i < displayPeople.length; i++) {
+  for (let i = 0; i < displayPeople.length; i++) {
     if (displayPeople[i].id == id) {
       return true;
     }
@@ -94,7 +94,7 @@ function displayPeopleIncludes(id) {
 
 function choosePeople() {
   while (displayPeople.length < 25) {
-    var randomNumber = Math.floor(Math.random() * allPeople.length);
+    let randomNumber = Math.floor(Math.random() * allPeople.length);
     if (!displayPeopleIncludes(randomNumber)) {
       displayPeople.push(allPeople[randomNumber]);
     }
@@ -103,11 +103,11 @@ function choosePeople() {
 
 function renderPeople() {
   gameTable.innerHTML = '';
-  for (var i = 0; i < 5; i++) {
-    var row = document.createElement('tr');
-    for (var j = 0; j < 5; j++) {
-      var gameTd = document.createElement('td');
-      var displayImg = document.createElement('img');
+  for (let i = 0; i < 5; i++) {
+    let row = document.createElement('tr');
+    for (let j = 0; j < 5; j++) {
+      let gameTd = document.createElement('td');
+      let displayImg = document.createElement('img');
       displayImg.src = displayPeople[(i * 5) + j].filepath;
       displayImg.id = (i * 5) + j;
       gameTd.appendChild(displayImg);
@@ -118,8 +118,8 @@ function renderPeople() {
 }
 
 function createHiddenPerson() {
-  var randomNumber = Math.floor(Math.random() * displayPeople.length);
-  var chosen1 = displayPeople[randomNumber];
+  let randomNumber = Math.floor(Math.random() * displayPeople.length);
+  let chosen1 = displayPeople[randomNumber];
   correctPerson.push(chosen1);
   console.log(correctPerson);
 }
