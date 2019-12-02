@@ -7,3 +7,4 @@
 ### Todo:
 * Add Contact Us Functionality.
 * Refactor functions to follow the single responsability principle.
+* Minor CSS fixes
