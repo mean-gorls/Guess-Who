@@ -1,3 +1,10 @@
+---
+name: Task
+about: Describe a task to be completed
+title: ''
+labels: ''
+assignees: ''
+---
 
 ## Checklist for submitting a new Task
 
